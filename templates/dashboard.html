@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BAEAI Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/dashboard.css') }}">
+</head>
+<body>
+    <!-- Header Container -->
+    <div id="header-container">
+        <h1>Welcome to BAEAI Dashboard</h1>
+    </div>
+
+    <!-- Menu Bar Container -->
+    <div id="menu-bar-container">
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('soagile_workflow') }}">SoAgile Workflow</a></li>
+            <li><a href="{{ url_for('kpis') }}">KPIs</a></li>
+            <li><a href="{{ url_for('resources') }}">Resources</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </div>
+
+    <!-- Features Container -->
+    <div id="features-container">
+        <h2>Features</h2>
+        <button><a href="{{ url_for('add_stakeholder') }}">Add Stakeholder</a></button>
+    </div>
+
+    <!-- Requirements Container -->
+    <div id="requirements-container">
+        <h2>Requirements</h2>
+        <!-- Add any content related to requirements here -->
+    </div>
+</body>
+</html>

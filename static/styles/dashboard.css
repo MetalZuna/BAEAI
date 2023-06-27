@@ -1,0 +1,87 @@
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Container */
+#header-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 77px;
+    background-color: #f8f9fa;
+    text-align: center;
+    line-height: 77px; /* Aligns the text vertically */
+    border: 2px solid #000000; /* Increased border thickness for visibility */
+}
+
+/* Menu Bar Container */
+#menu-bar-container {
+    position: absolute;
+    top: 77px;
+    left: 0;
+    width: 100%; /* Changed to 100% to span the entire width */
+    height: 32px;
+    background-color: #e9ecef;
+    border: 2px solid #000000; /* Increased border thickness for visibility */
+}
+
+#menu-bar-container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#menu-bar-container li {
+    float: left;
+}
+
+#menu-bar-container li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Features Container */
+#features-container {
+    position: absolute;
+    top: 148px;
+    left: 75px;
+    width: 250px;
+    height: 200px;
+    background-color: #e9ecef;
+    padding: 20px;
+    border: 2px solid #000000; /* Increased border thickness for visibility */
+}
+
+#features-container button {
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+    border: 2px solid #000000; /* Increased border thickness for visibility */
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+#features-container button a {
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+    color: black;
+}
+
+#requirements-container {
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
