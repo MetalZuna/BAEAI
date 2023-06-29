@@ -12,7 +12,7 @@ body {
     left: 0;
     width: 100%;
     height: 30px; /* Adjusted height */
-    background-color: #e7d509;
+    background-color: #d5dd5d;
     text-align: center;
     line-height: 30px; /* Aligns the text vertically */
     border: 2px solid #000000; /* Increased border thickness for visibility */
@@ -30,7 +30,7 @@ body {
     left: 0;
     width: 100%; /* Changed to 100% to span the entire width */
     height: 32px;
-    background-color: #e9ecef;
+    background-color: #d5dd5d;
     border: 2px solid #000000; /* Increased border thickness for visibility */
 }
 
@@ -58,11 +58,11 @@ body {
 /* Features Container */
 #features-container {
     position: absolute;
-    top: 66px; /* Adjusted to be right below the menu bar container */
+    top: 70px; /* Adjusted to be right below the menu bar container */
     left: 8px; /* Padding on the left */
     width: 170px;
-    height: calc(100vh - 66px); /* Extend across the height of the screen */
-    background-color: #e9ecef;
+    height: 810px; /* Extend across the height of the screen */
+    background-color: #d5dd5d;
     padding: 20px;
     border: 2px solid #000000; /* Increased border thickness for visibility */
 }
@@ -73,93 +73,7 @@ body {
     height: 30px; /* Adjusted to be just a little bigger than the text */
     margin-top: 2px;
     border: 2px solid #000000; /* Increased border thickness for visibility */
-    background-color: #f8f9fa;
-    text-align: center;
-}
-
-#features-container button a {
-    display: block;
-    padding: 2px 0; /* Adjusted to be just a little bigger than the text */
-    text-decoration: none;
-    color: black;
-}
-
-body {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Header Container */
-#header-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30px; /* Adjusted height */
-    background-color: #e7d509;
-    text-align: center;
-    line-height: 30px; /* Aligns the text vertically */
-    border: 2px solid #000000; /* Increased border thickness for visibility */
-}
-
-#header-container h1 {
-    font-size: 20px; /* Adjusted font size */
-    margin: 0; /* Removes default margin */
-}
-
-/* Menu Bar Container */
-#menu-bar-container {
-    position: absolute;
-    top: 26px; /* Adjusted to match the height of the header container */
-    left: 0;
-    width: 100%; /* Changed to 100% to span the entire width */
-    height: 32px;
-    background-color: #e9ecef;
-    border: 2px solid #000000; /* Increased border thickness for visibility */
-}
-
-#menu-bar-container ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#menu-bar-container li {
-    float: left;
-}
-
-#menu-bar-container li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Features Container */
-#features-container {
-    position: absolute;
-    top: 66px; /* Adjusted to be right below the menu bar container */
-    left: 8px; /* Padding on the left */
-    width: 170px;
-    height: calc(100vh - 66px); /* Extend across the height of the screen */
-    background-color: #e9ecef;
-    padding: 20px;
-    border: 2px solid #000000; /* Increased border thickness for visibility */
-}
-
-#features-container button {
-    display: block;
-    width: 100%;
-    height: 30px; /* Adjusted to be just a little bigger than the text */
-    margin-top: 2px;
-    border: 2px solid #000000; /* Increased border thickness for visibility */
-    background-color: #f8f9fa;
+    background-color: #eff18c;
     text-align: center;
 }
 
@@ -173,24 +87,22 @@ body {
 /* Option Box Container */
 #optionbox-container {
     position: absolute;
-    top: 66px; /* Same as the feature box */
-    left: 233px; /* Width of feature box + padding between feature box and option box */
-    width: 100px; /* Width of option box */
-    height: calc(100vh - 66px); /* Same height as the feature box */
-    background-color: #e9ecef;
-    padding: 20px;
+    top: 70px; /* Same as the feature box */
+    left: 238px; /* Width of feature box + padding between feature box and option box */
+    width: 200px; /* Width of option box */
+    height: 850px; /* Same height as the feature box */
+    background-color: #d5dd5d;
     border: 2px solid #000000; /* Similar border to other containers */
 }
 
 /* Chatbox Container */
 #chatbox-container {
     position: absolute;
-    top: 66px; /* Same as the feature box */
-    left: 341px; /* Width of feature box + width of option box + padding between option box and chatbox */
-    width: calc(100% - 349px); /* Full width minus the width of the feature box, option box and paddings */
-    height: calc(100vh - 66px); /* Same height as the feature box */
-    background-color: #e9ecef;
-    padding: 20px;
+    top: 70px; /* Same as the feature box */
+    left: 460px; /* Width of feature box + width of option box + padding between option box and chatbox */
+    width: 1212px; /* Full width minus the width of the feature box, option box and paddings */
+    height: 850px; /* Same height as the feature box */
+    background-color: #d5dd5d;
     border: 2px solid #000000; /* Similar border to other containers */
 }
 
