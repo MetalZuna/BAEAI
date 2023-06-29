@@ -1,113 +1,162 @@
 body {
     position: relative;
-    margin: 0;
-    padding: 0;
+    margin: 2px;
+    padding: 2px;
     box-sizing: border-box;
 }
 
-/* Header Container */
-#header-container {
+.container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30px; /* Adjusted height */
     background-color: #d5dd5d;
+    border: 2px solid #000000;
+}
+
+.text-center {
     text-align: center;
-    line-height: 30px; /* Aligns the text vertically */
-    border: 2px solid #000000; /* Increased border thickness for visibility */
 }
 
-#header-container h1 {
-    font-size: 20px; /* Adjusted font size */
-    margin: 0; /* Removes default margin */
-}
-
-/* Menu Bar Container */
-#menu-bar-container {
-    position: absolute;
-    top: 26px; /* Adjusted to match the height of the header container */
-    left: 0;
-    width: 100%; /* Changed to 100% to span the entire width */
-    height: 32px;
+/* Header and Menu Bar Container */
+#header-menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 99%;
+    height: 7vh;
+    border: 2px solid #000000;
+    padding: 0.5vh;
     background-color: #d5dd5d;
-    border: 2px solid #000000; /* Increased border thickness for visibility */
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#menu-bar-container ul {
+#header-menu-container h1 {
+    font-size: 2.5em;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+#header-menu-container ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    flex-grow: 2;
 }
 
-#menu-bar-container li {
-    float: left;
+#header-menu-container li {
+    float: center;
 }
 
-#menu-bar-container li a {
+#header-menu-container li a {
     display: block;
     color: black;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 1vh 1vw;
     text-decoration: none;
+    margin-bottom: 5px;    
+}
+
+/* Main Container */
+#main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Aligns children to the start of the container */
+    height: 85vh;
+    width: 100%;
+    top: 7vh;
+    margin-top: 1vh;
 }
 
 /* Features Container */
 #features-container {
-    position: absolute;
-    top: 70px; /* Adjusted to be right below the menu bar container */
-    left: 8px; /* Padding on the left */
-    width: 170px;
-    height: 810px; /* Extend across the height of the screen */
-    background-color: #d5dd5d;
-    padding: 20px;
-    border: 2px solid #000000; /* Increased border thickness for visibility */
+    width: 20vw;
+    height: 85vh;
+    padding: 2vh;
+    border: 2px solid #000000;
+    margin-left: 2px;
 }
 
 #features-container button {
     display: block;
     width: 100%;
-    height: 30px; /* Adjusted to be just a little bigger than the text */
-    margin-top: 2px;
-    border: 2px solid #000000; /* Increased border thickness for visibility */
+    height: 3vh;
+    margin-top: 0.5vh;
+    border: 2px solid #000000;
     background-color: #eff18c;
-    text-align: center;
 }
 
 #features-container button a {
     display: block;
-    padding: 2px 0; /* Adjusted to be just a little bigger than the text */
+    padding: 0.5vh 0;
     text-decoration: none;
     color: black;
 }
 
 /* Option Box Container */
 #optionbox-container {
-    position: absolute;
-    top: 70px; /* Same as the feature box */
-    left: 238px; /* Width of feature box + padding between feature box and option box */
-    width: 200px; /* Width of option box */
-    height: 850px; /* Same height as the feature box */
-    background-color: #d5dd5d;
-    border: 2px solid #000000; /* Similar border to other containers */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20vw; /* Adjusted width */
+    height: 89vh;
+    border: 2px solid #000000;
+}
+
+#form-container {
+    height: 50vh; /* Adjust as needed */
+    align-self: flex-start;
 }
 
 /* Chatbox Container */
 #chatbox-container {
-    position: absolute;
-    top: 70px; /* Same as the feature box */
-    left: 460px; /* Width of feature box + width of option box + padding between option box and chatbox */
-    width: 1212px; /* Full width minus the width of the feature box, option box and paddings */
-    height: 850px; /* Same height as the feature box */
-    background-color: #d5dd5d;
-    border: 2px solid #000000; /* Similar border to other containers */
+    width: 60vw; /* Adjusted width */
+    height: 89vh;
+    border: 2px solid #000000;
+    margin-right: 3px;
+    
+}
+
+/* GPT Text Display Container */
+#gpt-text-display-container {
+    width: 97%;
+    height: 85%;
+    border: 1px solid #000000;
+    padding: 10px;
+    overflow-y: auto; /* To add a scrollbar when the content exceeds the container height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* User Text Input Container */
+#user-text-input-container {
+    width: 98%;
+    height: 10%;
+    border: 2px solid #000000;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-text-input-container input {
+    width: 100%;
+    height: 100%;
+    font-size: x-large;
 }
 
 
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    #main-container {
+        flex-direction: column;
+    }
 
-
-
-
+    #features-container, #optionbox-container, #chatbox-container {
+        width: 100%;
+        height: 15vh;
+    }
+}
