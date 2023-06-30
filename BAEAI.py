@@ -3,6 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from langchain import OpenAI, ConversationChain, LLMChain, PromptTemplate
+from langchain.memory import ConversationBufferWindowMemory
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
@@ -65,6 +68,40 @@ class StakeholderForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired()])
     submit = SubmitField('Add Stakeholder')
 
+
+
+#Language model
+
+template = """Assistant is a large language model trained by OpenAI.
+
+Assistant is designed to be able to assist with a wide range of tasks, from answering simple questions to providing in-depth explanations and discussions on a wide range of topics. As a language model, Assistant is able to generate human-like text based on the input it receives, allowing it to engage in natural-sounding conversations and provide responses that are coherent and relevant to the topic at hand.
+
+Assistant is constantly learning and improving, and its capabilities are constantly evolving. It is able to process and understand large amounts of text, and can use this knowledge to provide accurate and informative responses to a wide range of questions. Additionally, Assistant is able to generate its own text based on the input it receives, allowing it to engage in discussions and provide explanations and descriptions on a wide range of topics.
+
+Overall, Assistant is a powerful tool that can help with a wide range of tasks and provide valuable insights and information on a wide range of topics. Whether you need help with a specific question or just want to have a conversation about a particular topic, Assistant is here to assist.
+
+{history}
+Human: {human_input}
+Assistant:"""
+
+prompt = PromptTemplate(input_variables=["history", "human_input"], template=template)
+
+
+chatgpt_chain = LLMChain(
+    llm=OpenAI(temperature=0),
+    prompt=prompt,
+    verbose=True,
+    memory=ConversationBufferWindowMemory(k=2),
+)
+
+output = chatgpt_chain.predict(
+    human_input="name the top three combustion and top three diesel engines ever created, provide year of the engine, provide description of what makes them great engines"
+)
+print(output)
+
+
+
+
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
@@ -96,6 +133,15 @@ def add_stakeholder():
         flash('Stakeholder added successfully')
         return redirect(url_for('dashboard'))
     return render_template('add_stakeholder.html', form=form)
+
+@app.route('/llm_text_output')
+def llm_text_output():
+    output = chatgpt_chain.predict(
+        human_input="I want you to provide me names of fastest women in history. provide top ten names"
+    )
+    return render_template('dashboard.html', output=output.content)
+
+
 
 if __name__ == '__main__':
     with app.app_context():
