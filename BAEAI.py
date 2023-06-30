@@ -1,74 +1,17 @@
 from flask import Flask, render_template, redirect, url_for, flash
-from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
 from langchain import OpenAI, ConversationChain, LLMChain, PromptTemplate
 from langchain.memory import ConversationBufferWindowMemory
+from flask import Flask, render_template, redirect, url_for, flash, request
+from models import init_db, db
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 app.config['SECRET_KEY'] = 'dev'  # replace with a secure random string in production
-db = SQLAlchemy(app)
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    role = db.Column(db.String(80), nullable=False, default='standard user')
-
-class Project(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), nullable=False)
-    description = db.Column(db.Text)
-    start_date = db.Column(db.Date, nullable=False)
-    end_date = db.Column(db.Date)
-    status = db.Column(db.String(80), nullable=False, default='in progress')
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-
-class Conversation(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    project_id = db.Column(db.Integer, db.ForeignKey('project.id'), nullable=False)
-    timestamp = db.Column(db.DateTime, nullable=False)
-    user_input = db.Column(db.Text, nullable=False)
-    B2_response = db.Column(db.Text, nullable=False)
-
-class Document(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    project_id = db.Column(db.Integer, db.ForeignKey('project.id'), nullable=False)
-    doc_type = db.Column(db.String(80), nullable=False)
-    content = db.Column(db.Text, nullable=False)
-    creation_date = db.Column(db.DateTime, nullable=False)
-    last_modified_date = db.Column(db.DateTime, nullable=False)
-
-class Stakeholder(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(80), nullable=False)
-    last_name = db.Column(db.String(80), nullable=False)
-    title = db.Column(db.String(80), nullable=False)
-    RACI = db.Column(db.String(80), nullable=False)
-    email = db.Column(db.String(120), nullable=False, unique=True)
-
-class Requirement(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    stakeholder_id = db.Column(db.Integer, db.ForeignKey('stakeholder.id'), nullable=False)
-    # user_story_id = db.Column(db.Integer, db.ForeignKey('user_story.id'), nullable=False)
-    requirement_description = db.Column(db.String(200), nullable=False)
-    stakeholder = db.relationship('Stakeholder', backref='requirements')
-    # user_story = db.relationship('UserStory', backref='requirements')
-
-class StakeholderForm(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired()])
-    last_name = StringField('Last Name', validators=[DataRequired()])
-    title = StringField('Title', validators=[DataRequired()])
-    raci = StringField('RACI', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    submit = SubmitField('Add Stakeholder')
-
-
+db.init_app(app)
 
 #Language model
 
@@ -93,13 +36,6 @@ chatgpt_chain = LLMChain(
     verbose=True,
     memory=ConversationBufferWindowMemory(k=2),
 )
-
-output = chatgpt_chain.predict(
-    human_input="name the top three combustion and top three diesel engines ever created, provide year of the engine, provide description of what makes them great engines"
-)
-print(output)
-
-
 
 
 @app.route('/dashboard')
@@ -134,17 +70,22 @@ def add_stakeholder():
         return redirect(url_for('dashboard'))
     return render_template('add_stakeholder.html', form=form)
 
-@app.route('/llm_text_output')
-def llm_text_output():
+@app.route('/process_input', methods=['POST'])
+def process_input():
+    user_input = request.form.get('user-input')  # get the user input from the form
+    output = chatgpt_chain.predict(human_input=user_input)  # process the user input
+    return render_template('dashboard.html', output=output)  # return the output to the dashboard
+
+
+@app.route('/get_output', methods=['GET'])
+def get_output():
     output = chatgpt_chain.predict(
         human_input="I want you to provide me names of fastest women in history. provide top ten names"
     )
-    return render_template('dashboard.html', output=output.content)
-
+    return output
 
 
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()
+        init_db()
     app.run(debug=True)
-

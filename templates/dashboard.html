@@ -44,9 +44,16 @@
         </div>
 
 <!-- User Text Input Container -->
-    <div id="user-text-input-container">
-        <textarea id="user-input" name="user-input" rows="5" cols="110"></textarea>
-    </div>
+<div id="user-text-input-container">
+    <form action="{{ url_for('process_input') }}" method="post">
+        <div id="input-button-container">
+            <textarea id="user-input" name="user-input" rows="5" cols="110"></textarea>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
@@ -86,6 +93,18 @@
         }
     });
 });
+
+function updateOutput() {
+    $.get("/get_output", function(data) {
+        $("#gpt-text-display-container").text(data);
+    });
+}
+
+$(document).ready(function(){
+    updateOutput();
+    // Other code...
+});
+
     </script>
 
 </body>
