@@ -1,30 +1,24 @@
 <form id="add-stakeholder-form" method="POST">
-    <input type="hidden" name="stakeholder_id" value="{{ stakeholder_id }}">
+    {{ form.hidden_tag() }}
     <p>
-        <label for="first_name">First Name:</label><br>
-        <input type="text" id="first_name" name="first_name" required>
+        {{ form.first_name.label }}<br>
+        {{ form.first_name }}
     </p>
     <p>
-        <label for="last_name">Last Name:</label><br>
-        <input type="text" id="last_name" name="last_name" required>
+        {{ form.last_name.label }}<br>
+        {{ form.last_name }}
     </p>
     <p>
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" required>
+        {{ form.title.label }}<br>
+        {{ form.title }}
     </p>
     <p>
-        <label for="raci">RACI:</label><br>
-        <select id="raci" name="raci" required>
-            <option value="">Select...</option>
-            <option value="Responsible">Responsible</option>
-            <option value="Accountable">Accountable</option>
-            <option value="Consulted">Consulted</option>
-            <option value="Informed">Informed</option>
-        </select>
+        {{ form.raci.label }}<br>
+        {{ form.raci }}
     </p>
     <p>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required>
+        {{ form.email.label }}<br>
+        {{ form.email }}
     </p>
     <p>
         <input type="submit" value="Submit">

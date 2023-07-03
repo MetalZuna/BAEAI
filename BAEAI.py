@@ -3,6 +3,7 @@ import os
 from flask import Flask
 from models import init_db, db
 from routes import register_routes
+from flask_sqlalchemy import SQLAlchemy
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import (
     AIMessage,
@@ -45,9 +46,9 @@ params = {
 
 # Define the system message templates
 system_templates = {
-    'welcome': "You are {bot_name}, a helpful assistant capable of {bot_capabilities}.",
-    'stakeholder': "As {bot_name}, I can help you manage stakeholders by {bot_capabilities}.",
-    'project': "As {bot_name}, I can help you manage projects by {bot_capabilities}.",
+    'welcome': "You are {bot_name}, a helpful assistant capable of {bot_capabilities}. reply w/ short & simple answer & bullet points w/ no description",
+    'stakeholder': "As {bot_name}, I can help you manage stakeholders by {bot_capabilities}. reply w/ short & simple answer & bullet points w/ no description",
+    'project': "As {bot_name}, I can help you manage projects by {bot_capabilities}. reply w/ short & simple answer & bullet points w/ no description",
 }
 
 # Create the SystemMessagePromptTemplates
@@ -56,8 +57,8 @@ system_message_prompts = {feature: SystemMessagePromptTemplate.from_template(tem
 # Define the human message templates
 human_templates = {
     'welcome': "Who are you, what can you do?",
-    'stakeholder': "What can you do for stakeholder management?",
-    'project': "What can you do for project management?",
+    'stakeholder': "How can you help me stakeholder managment?",
+    'project': "How can you help me with the project?",
 }
 
 # Create the HumanMessagePromptTemplates
@@ -77,7 +78,7 @@ def generate_prompt(feature):
     return response
 
 # Print the response for the "welcome" feature
-print(generate_prompt('stakeholder'))
+print(generate_prompt('project'))
 
 #messages = [
 #   SystemMessage(content="You are a helpful assistant that translates suggests a dinner plans."),
@@ -94,4 +95,4 @@ register_routes(app, db, chat)
 if __name__ == '__main__':
     with app.app_context():
         init_db()
-    app.run(debug=True)
+    app.run(port=5001)

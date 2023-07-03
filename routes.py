@@ -31,12 +31,13 @@ def register_routes(app, db, chatgpt_chain):
     def add_stakeholder():
         form = StakeholderForm()
         if form.validate_on_submit():
-            new_stakeholder = Stakeholder(first_name=form.first_name.data, last_name=form.last_name.data, title=form.title.data, raci=form.raci.data, email=form.email.data)
-            db.session.add(new_stakeholder)
-            db.session.commit()
-            flash('Stakeholder added successfully')
+            # handle the form submission
             return redirect(url_for('dashboard'))
         return render_template('add_stakeholder.html', form=form)
+
+      
+   
+
 
     @app.route('/process_input', methods=['POST'])
     def process_input():
