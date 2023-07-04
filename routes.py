@@ -34,6 +34,25 @@ def register_routes(app, db, chatgpt_chain):
             # handle the form submission
             return redirect(url_for('dashboard'))
         return render_template('add_stakeholder.html', form=form)
+    
+    @app.route('/add_project', methods=['GET', 'POST'])
+    def add_project():
+        form = ProjectForm()
+        if form.validate_on_submit():
+            new_project = Project(
+                name=form.project_name.data, 
+                description=form.description.data, 
+                start_date=form.start_date.data, 
+                end_date=form.end_date.data, 
+                status=form.status.data, 
+                user_id=form.user_id.data
+            )
+            db.session.add(new_project)
+            db.session.commit()
+            flash('Project added successfully')
+            return redirect(url_for('dashboard'))
+        return render_template('add_project.html', form=form)
+
 
       
    
@@ -52,3 +71,17 @@ def register_routes(app, db, chatgpt_chain):
             human_input="I want you to provide me names of fastest women in history. provide top ten names"
         )
         return output
+    
+    @app.route('/chat', methods=['POST'])
+    def chat_route():
+        # Get the user's input from the request data
+        user_input = request.get_json().get('input')
+
+        # Add the user's input to the messages
+        prompt.append(HumanMessage(content=user_input))
+
+        # Get a chat completion from the formatted messages
+        response = chat(prompt)
+
+        # Return the chatbot's response as the response data
+        return jsonify({'response': response})

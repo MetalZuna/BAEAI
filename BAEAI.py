@@ -41,14 +41,16 @@ from langchain.prompts.chat import (
 # Define the parameters for the prompts
 params = {
     'bot_name': 'GPTBA',
-    'bot_capabilities': 'AI powered business Analyst, providing information about the platform and its features, help brainstorm, prepare requirements, prepare project documents, help create project backlog, create test cases, and help perform other BA tasks'
+    'bot_capabilities': 'AI powered business Analyst, providing information about the platform and its features, help brainstorm, prepare requirements, prepare project documents, help create project backlog, create test cases, and help perform other BA tasks',
+    # write code to get project name from user
+    'project_name': 'project name',
 }
 
 # Define the system message templates
 system_templates = {
     'welcome': "You are {bot_name}, a helpful assistant capable of {bot_capabilities}. reply w/ short & simple answer & bullet points w/ no description",
-    'stakeholder': "As {bot_name}, I can help you manage stakeholders by {bot_capabilities}. reply w/ short & simple answer & bullet points w/ no description",
-    'project': "As {bot_name}, I can help you manage projects by {bot_capabilities}. reply w/ short & simple answer & bullet points w/ no description",
+    'add_project': "As {bot_name}, I can help you add project. what is your {project_name} reply w/ simple answer w/  description?",
+    'add_project_name': "what is your {project_name} reply w/ simple answer w/ no description?",
 }
 
 # Create the SystemMessagePromptTemplates
@@ -57,9 +59,10 @@ system_message_prompts = {feature: SystemMessagePromptTemplate.from_template(tem
 # Define the human message templates
 human_templates = {
     'welcome': "Who are you, what can you do?",
-    'stakeholder': "How can you help me stakeholder managment?",
-    'project': "How can you help me with the project?",
+    'add_project': "I want to add a project named {project_name}",
+    'add_project_name': "The project name is {project_name}",
 }
+
 
 # Create the HumanMessagePromptTemplates
 human_message_prompts = {feature: HumanMessagePromptTemplate.from_template(template) for feature, template in human_templates.items()}
@@ -67,18 +70,40 @@ human_message_prompts = {feature: HumanMessagePromptTemplate.from_template(templ
 # Create the ChatPromptTemplates
 chat_prompts = {feature: ChatPromptTemplate.from_messages([system_message_prompts[feature], human_message_prompts[feature]]) for feature in system_templates.keys()}
 
-# Function to generate a prompt based on the feature
-def generate_prompt(feature):
-    # Generate the prompt
-    prompt = chat_prompts[feature].format_prompt(**params).to_messages()
+# Function to prompt the user for a human message
+def prompt_human_message(feature, chat):
+    # Get the ChatPromptTemplate for the given feature
+    chat_prompt_template = chat_prompts[feature]
+    
+    # Generate a prompt from the ChatPromptTemplate
+    prompt = chat_prompt_template.format_prompt(**params)
+    
+    # Get a response from the chat model
+    response = chat(prompt.to_messages())
+    
+    # Print the chatbot's response
+    print(response)
+    
+    # Ask for the user's input
+    user_input = input("Your turn: ")
+    
+    # Update the params dictionary with the user's input
+    params['project_name'] = user_input
+    
+    # Generate a new system prompt with the user's input
+    new_prompt = chat_prompt_template.format_prompt(**params)
+    
+    # Get a response from the chat model
+    new_response = chat(new_prompt.to_messages())
+    
+    return new_response
 
-    # Get a chat completion from the formatted messages
-    response = chat(prompt)
 
-    return response
+print(prompt_human_message('welcome', chat))
+print(prompt_human_message('add_project_name', chat))
 
-# Print the response for the "welcome" feature
-print(generate_prompt('project'))
+
+
 
 #messages = [
 #   SystemMessage(content="You are a helpful assistant that translates suggests a dinner plans."),
