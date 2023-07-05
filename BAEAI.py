@@ -30,37 +30,81 @@ db.init_app(app)
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 chat=ChatOpenAI()
 
-# Define the parameters for the prompt
-from langchain import PromptTemplate
-from langchain.prompts.chat import (
-    ChatPromptTemplate,
-    SystemMessagePromptTemplate,
-    HumanMessagePromptTemplate,
-)
+#-------------------------------------------------------------------------------------------------------------------------------
+'''
 
+User: lands on the dashboard page
+Bot: greets the user
+User: greets the bot
+Bot: asks the user what they want to do
+User: says they want to add a project
+Bot: asks the user for the project name
+User: provides the project name
+Bot: asks the user for the project description
+User: provides the project description
+Bot: asks the user for the project start date
+User: provides the project start date
+Bot: asks the user for the project end date
+User: provides the project end date
+Bot: asks the user for the project status
+User: provides the project status
+Bot: displays the project details that the user provided
+User: confirms the project details
+Bot: adds the project to the database
+
+
+'''
+
+
+
+
+
+
+
+
+
+
+
+#-------------------------------------------------------------------------------------------------------------------------------
 # Define the parameters for the prompts
 params = {
     'bot_name': 'GPTBA',
     'bot_capabilities': 'AI powered business Analyst, providing information about the platform and its features, help brainstorm, prepare requirements, prepare project documents, help create project backlog, create test cases, and help perform other BA tasks',
-    # write code to get project name from user
-    'project_name': 'project name',
+    'welcome': 'welcome',
+    'add_project': 'reply only with - sure, lets add a project',
+    'project_name': 'project_name',
+    'start_date': '{project_name} will start on {start_date}. reply w/ simple answer w/ no description?',
 }
+
 
 # Define the system message templates
 system_templates = {
     'welcome': "You are {bot_name}, a helpful assistant capable of {bot_capabilities}. reply w/ short & simple answer & bullet points w/ no description",
-    'add_project': "As {bot_name}, I can help you add project. what is your {project_name} reply w/ simple answer w/  description?",
-    'add_project_name': "what is your {project_name} reply w/ simple answer w/ no description?",
+    'add_project': " reply only with - sure, lets add a project",
+    'project_name': "reply with - okay, I have {project_name} as the project name.? and no other comment?",
+    'start_date': " {project_name} will start on {start_date}. reply w/ simple answer w/ no description?",
+    'end_date': " {project_name} will end on {end_date}. reply w/ simple answer w/ no description?",
+    'status': " {project_name} {status} is. reply w/ simple answer w/ no description?",
+    'user_id': " {user_id} is your user id. reply w/ simple answer w/ no description?",
+    'description': " Thanks for providing project description. reply w/ simple answer. reply with description hilights in bullet points?",
+    'confirm_project': "The project details are - {project_name}, {start_date}, {end_date}, {status}, {user_id}, {description}",
+
 }
 
 # Create the SystemMessagePromptTemplates
 system_message_prompts = {feature: SystemMessagePromptTemplate.from_template(template) for feature, template in system_templates.items()}
 
-# Define the human message templates
+# Define the human message templates 
 human_templates = {
     'welcome': "Who are you, what can you do?",
-    'add_project': "I want to add a project named {project_name}",
-    'add_project_name': "The project name is {project_name}",
+    'add_project': "I want to add a project",
+    'project_name': "The project name is {project_name}",
+    'start_date': "The start date is {start_date}",
+    'end_date': "The end date is {end_date}",
+    'status': "The status is {status}",
+    'user_id': "My user id is {user_id}",
+    'description': "The project description is - {description}",
+    'confirm_project': 'y' or 'n' or 'yes' or 'no'
 }
 
 
@@ -70,10 +114,9 @@ human_message_prompts = {feature: HumanMessagePromptTemplate.from_template(templ
 # Create the ChatPromptTemplates
 chat_prompts = {feature: ChatPromptTemplate.from_messages([system_message_prompts[feature], human_message_prompts[feature]]) for feature in system_templates.keys()}
 
-# Function to prompt the user for a human message
-def prompt_human_message(feature, chat):
-    # Get the ChatPromptTemplate for the given feature
-    chat_prompt_template = chat_prompts[feature]
+def get_project_name(chat):
+    # Get the ChatPromptTemplate for the 'project_name' feature
+    chat_prompt_template = chat_prompts['project_name']
     
     # Generate a prompt from the ChatPromptTemplate
     prompt = chat_prompt_template.format_prompt(**params)
@@ -81,35 +124,51 @@ def prompt_human_message(feature, chat):
     # Get a response from the chat model
     response = chat(prompt.to_messages())
     
-    # Print the chatbot's response
-    print(response)
-    
-    # Ask for the user's input
-    user_input = input("Your turn: ")
+    # Prompt the user for the project name
+    user_input = input("Please enter the project name: ")
     
     # Update the params dictionary with the user's input
     params['project_name'] = user_input
+
+    # Update the prompt with the user's input
+    prompt = chat_prompt_template.format_prompt(**params)
+
+    # Get a new response from the chat model
+    response = chat(prompt.to_messages())
+
+    # Print the new response
+    print(response.content)
+
+def get_start_date(chat):
+    # Get the ChatPromptTemplate for the 'start_date' feature
+    chat_prompt_template = chat_prompts['start_date']
     
-    # Generate a new system prompt with the user's input
-    new_prompt = chat_prompt_template.format_prompt(**params)
+    # Generate a prompt from the ChatPromptTemplate
+    prompt = chat_prompt_template.format_prompt(**params)
     
     # Get a response from the chat model
-    new_response = chat(new_prompt.to_messages())
+    response = chat(prompt.to_messages())
     
-    return new_response
+    # Prompt the user for the start date
+    user_input = input("Please enter the project start date: ")
+    
+    # Update the params dictionary with the user's input
+    params['start_date'] = user_input
+
+    # Update the prompt with the user's input
+    prompt = chat_prompt_template.format_prompt(**params)
+
+    # Get a new response from the chat model
+    response = chat(prompt.to_messages())
+
+    # Print the new response
+    print(response.content)
 
 
-print(prompt_human_message('welcome', chat))
-print(prompt_human_message('add_project_name', chat))
+# Then, you can call these functions in your main code like this:
+print(get_project_name(chat))
+print(get_start_date(chat))
 
-
-
-
-#messages = [
-#   SystemMessage(content="You are a helpful assistant that translates suggests a dinner plans."),
-#   HumanMessage(content="suggest a Punjabi vegetarian 5 course meal for 5 people.")
-#result=chat(messages)
-#print(result)
 
 
 # -------------------------------------------------------------------------------------------------------------------------------
@@ -120,4 +179,5 @@ register_routes(app, db, chat)
 if __name__ == '__main__':
     with app.app_context():
         init_db()
+    
     app.run(port=5001)
