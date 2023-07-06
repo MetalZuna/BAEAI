@@ -1,5 +1,6 @@
 # main.py
 import os
+import openai
 from flask import Flask
 from models import init_db, db
 from routes import register_routes
@@ -17,6 +18,11 @@ from langchain.prompts.chat import (
     AIMessagePromptTemplate,
     HumanMessagePromptTemplate,
 )
+from langchain.chains import ConversationChain
+from langchain.memory import ConversationBufferMemory
+
+
+#-------------------------------------------------------------------------------------------------------------------------------
 
 
 app = Flask(__name__)
@@ -29,6 +35,29 @@ db.init_app(app)
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 chat=ChatOpenAI()
+
+llm = ChatOpenAI(temperature=0.1)
+memory = ConversationBufferMemory()
+conversation = ConversationChain(
+    llm = llm,
+    memory = memory,
+    verbose = True
+    )
+
+
+
+'''
+response = conversation.predict(input = 'Hello, my name is Singh')
+print(response)
+
+print(conversation.predict(input = 'What is the capital of Myanmar?'))
+
+print(conversation.predict(input = 'do you remember my name?'))
+
+print(memory.load_memory_variables({}))
+
+'''
+
 
 #-------------------------------------------------------------------------------------------------------------------------------
 '''
@@ -53,20 +82,50 @@ User: confirms the project details
 Bot: adds the project to the database
 
 
-'''
-
-
-
-
-
-
-
-
-
-
 
 #-------------------------------------------------------------------------------------------------------------------------------
+# Helper function to get the completion text from the chat model
+def get_completion(prompt, model='gpt-3.5-turbo'):
+    messages = [{'role': 'user', 'content': prompt}]
+    response = openai.ChatCompletion.create(
+        model=model,
+        messages=messages,
+        temperature=0.1,
+    )
+    return response.choices[0].message['content']
+                 
+
+# print(get_completion('what is the capital of Azerbaijan?'))
+
+customer_email = """
+Arrr, I be fuming that me blender lid \
+flew off and splattered me kitchen walls \
+with smoothie! And to make matters worse,\
+the warranty don't cover the cost of \
+cleaning up me kitchen. I need yer help \
+right now, matey!
+"""
+
+style = """American English \
+in a calm and respectful tone
+"""
+
+
+prompt = f"""Translate the text \
+that is delimited by triple backticks 
+into a style that is {style}.
+text: ```{customer_email}```
+"""
+
+print(prompt)
+response = get_completion(prompt)
+print(response)
+
+
+'''
+#-------------------------------------------------------------------------------------------------------------------------------
 # Define the parameters for the prompts
+'''
 params = {
     'bot_name': 'GPTBA',
     'bot_capabilities': 'AI powered business Analyst, providing information about the platform and its features, help brainstorm, prepare requirements, prepare project documents, help create project backlog, create test cases, and help perform other BA tasks',
@@ -168,7 +227,7 @@ def get_start_date(chat):
 # Then, you can call these functions in your main code like this:
 print(get_project_name(chat))
 print(get_start_date(chat))
-
+'''
 
 
 # -------------------------------------------------------------------------------------------------------------------------------
