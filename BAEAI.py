@@ -20,6 +20,9 @@ from langchain.prompts.chat import (
 )
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
+from langchain.memory import ConversationBufferWindowMemory
+from langchain.memory import ConversationTokenBufferMemory
+from langchain.memory import ConversationSummaryBufferMemory
 
 
 #-------------------------------------------------------------------------------------------------------------------------------
@@ -37,13 +40,24 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 chat=ChatOpenAI()
 
 llm = ChatOpenAI(temperature=0.1)
-memory = ConversationBufferMemory()
+#memory = ConversationBufferMemory()
+#memory = ConversationBufferWindowMemory(k=1)
+memory = ConversationTokenBufferMemory(llm=llm, max_tokens=1)
 conversation = ConversationChain(
     llm = llm,
     memory = memory,
-    verbose = True
+    verbose = False
     )
 
+
+memory.save_context({"input": "What color is the grass"}, {"output": "The grass is green"})
+
+memory.save_context({"input": "What color is the sky"}, {"output": "The sky is blue"})
+
+memory.save_context({"input": "Does mangoe taste good?"}, {"output": "Mangoe tastes good"})
+
+#print(memory.buffer)
+print(memory.load_memory_variables({}))
 
 
 '''
