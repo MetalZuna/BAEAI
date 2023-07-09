@@ -8,9 +8,84 @@ import tiktoken
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-# helper function - chain promompts to break down the problem into smaller steps or creating smaller chains of thoughts for better results
+#------------------------------------------------------------
+# helper function to chain promompts to break down the problem into smaller steps or creating smaller chains of thoughts for better results
 # helps to maintain state of the workflow --> state would be categorzing the user input for building a focused chain of thought for the next step
 # like question - A question about opening a new account could be categorized as "new account" --> this would help to build a chain of thought for the next step
+# chaining prompts reduces the number of tokens required to generate a response
+# Skips some chains of the workflow when not needed for the task
+# Easier to test - to include human-in-the-loop
+# For complex tasks, keep track of state external to the llm (in your own code) and inject instructions into the prompt as needed
+# Chaining prompts let's chat model use external tools like web search, database queries, etc. to generate a response 
+
+def get_completion_from_chain_prompt_messages(messages, model='gpt-3.5-turbo'):
+    response = openai.ChatCompletion.create(
+        model=model,
+        messages=messages,
+        temperature=0.0,
+        max_tokens=3000,
+    )
+    return response.choices[0].message['content']
+
+delimeter = '####'
+system_message = f'''
+you will be given a user query. The query will be delimited with four hashtags, i.e. {delimeter} character.
+output a python list of objects, where each object has the following format
+    'category': <requirements, agile, user story, testing, project management, product management>
+
+where the categories and sub-categories, and user intent must be found in user query.
+if the category is mentioed, it must be associated with correct category in the allowed sub-categories list
+you must also identify the user intent from the intent list.
+
+Allowed sub-categories
+Requirements: 
+    'requirements elicitation', 'requirements analysis', 'requirements specification', 'requirements validation', 'requirements management'
+Agile:
+    'agile', 'scrum', 'kanban', 'lean', 'extreme programming', 'adaptive software development', \
+        'crystal', 'dynamic systems development method', 'feature-driven development', 'unified process'
+User Story:
+    'user story', 'user stories'
+Testing:
+    'testing', 'test-driven development', 'unit testing', 'integration testing', 'functional testing', \
+        'system testing', 'end-to-end testing', 'acceptance testing', 'performance testing', 'load testing', \
+            'stress testing', 'usability testing', 'install/uninstall testing', 'recovery testing', \
+                'security testing', 'compatibility testing', 'exploratory testing', 'ad hoc testing', 'user acceptance testing', \
+                    'alpha testing', 'beta testing', 'gray box testing', 'black box testing', 'white box testing'
+Project Management:
+    'project management', 'project manager', 'project plan', 'project charter', 'project scope', 'project scheduling', \
+        'project estimation', 'project budgeting', 'project communication', 'project risk management', 'project quality management',\
+              'project staffing', 'project controlling', 'project closure'
+Product Management:
+    'product management', 'product manager', 'product market research', 'product strategy', 'product roadmap', 'product requirements', \
+        'product design', 'product development', 'product launch', 'product marketing', 'product sales', 'product support', 'product end of life'
+
+
+user intent:
+    'Create, write, writing, make'
+    'Read, get, look-up, search, find'
+    'Update, change, modify'
+    'Delete, remove, cancel'
+    'List, view, show, display'
+    'Login, sign-in, sign-up, register'
+    'Logout, sign-out'
+    'Help, support, faq'
+    'Brainstorm, idea, suggestion, discuss' '''
+
+user_message_1 = f'''
+I need your help writing a user story for a new feature. The feature is called 'Demographics'.
+when the user lands on the dashboard, then the demographics box shall be displayed as per the prototype.
+Demographics box shall display First Name, Last Name, Email, Phone Number, and Address of the client as per the prototype.
+I also want to discuss the testing scope for this feature.'''
+
+messages = [
+    {'role': 'system', 
+     'content': system_message},
+    {'role': 'user',
+        'content': f'{delimeter} {user_message_1} {delimeter}'},
+]
+
+category_and_intent_response_1 = get_completion_from_chain_prompt_messages(messages)
+print(category_and_intent_response_1)
 
 
 
@@ -19,7 +94,7 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 # helper function coupled with chain of thought resoning to arrive at a conclusion
 
-def get_completion_from_chain_messages(messages, model='gpt-3.5-turbo'):
+def get_completion_from_chain_steps_messages(messages, model='gpt-3.5-turbo'):
     response = openai.ChatCompletion.create(
         model=model,
         messages=messages,
@@ -130,7 +205,7 @@ print(response)
 
 # helper function to evaluate inputs: classfying the input into primary and secondary categories
 
-def get_completion_from_messages(messages, 
+def get_completion_from_steps_messages(messages, 
     model='gpt-3.5-turbo', 
     temperature=0, 
     max_tokens=500):
