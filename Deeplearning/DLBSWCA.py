@@ -17,6 +17,63 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 # Easier to test - to include human-in-the-loop
 # For complex tasks, keep track of state external to the llm (in your own code) and inject instructions into the prompt as needed
 # Chaining prompts let's chat model use external tools like web search, database queries, etc. to generate a response 
+    # It allows for more focused breakdown of complex tasks
+    # Limit the impact of Context limitation for input prompt and output prompt
+    # Reduce cost of generating a response due to smaller input and output prompts
+    # Text embeddings enhance the quality of the response
+
+#------------------------------------------------------------
+# BA agent use cases
+# 1. BA agent to help with the user query by identifying the category of the query
+# 2. BA agent to help with the user query by identifying the sub-category of the query
+
+def identify_use_case(messages, model = 'gpt-3.5-turbo'):
+    response = openai.ChatCompletion.create(
+        model=model,
+        messages=messages,
+        temperature=0.0,
+        max_tokens=4000,
+    )
+    return response.choices[0].message['content']
+
+# Requirement Management Use Cases
+# Requirement Management Use Cases
+Requirement_Management_1 = {
+    'Requirement_Elicitation_steps': {
+        'Category': 'Requirements_Elicitation',
+        'Steps': {
+            'RE_step_1': 'Prepare for Requirement Elicitation to ensure that the stakeholder has the information they need to participate in the elicitation session',
+            'RE_step_2': 'Conduct Requirement Elicitation to fully understand the stakeholder\'s needs_or_problems and expectations', 
+            'RE_step_3': 'Document Requirement Elicitation- create text to document the results of the elicitation session',
+            'RE_step_4': 'Review Original requirements with the stakeholder to ensure that the requirements are correct and complete',
+            'RE_step_5': 'Review Requirement Solution Scope with the stakeholder to ensure that the solution scope is correct and complete',
+        }
+    },
+
+    'Requirements_Analysis_steps': {
+        'Category': 'Requirements_Analysis',
+        'Steps': {
+            'RA_step_1': 'Prepare for Requirements Analysis to ensure that the stakeholder has the information they need to participate in the analysis session',
+            'RA_step_2': 'Conduct Requirements Analysis to fully understand the stakeholder\'s needs_or_problems and expectations', 
+            'RA_step_3': 'Document Requirements Analysis- create text to document the results of the analysis session',
+            'RA_step_4': 'Review Original requirements with the stakeholder to ensure that the requirements are correct and complete',
+            'RA_step_5': 'Review Requirement Solution Scope with the stakeholder to ensure that the solution scope is correct and complete',
+        }
+    }
+}
+
+
+def get_requirement_managment_use_case(Rquirement_Elicitation_steps):
+    return Requirement_Management_1.get(Rquirement_Elicitation_steps, None)
+
+def get_requirements_by_category(Category):
+    return [value['Steps'] for key, value in Requirement_Management_1.items() if value.get('Category') == Category]
+
+
+
+print(get_requirements_by_category('Requirements_Analysis'))
+
+
 
 def get_completion_from_chain_prompt_messages(messages, model='gpt-3.5-turbo'):
     response = openai.ChatCompletion.create(
@@ -84,8 +141,8 @@ messages = [
         'content': f'{delimeter} {user_message_1} {delimeter}'},
 ]
 
-category_and_intent_response_1 = get_completion_from_chain_prompt_messages(messages)
-print(category_and_intent_response_1)
+#category_and_intent_response_1 = get_completion_from_chain_prompt_messages(messages)
+# print(category_and_intent_response_1)
 
 
 
