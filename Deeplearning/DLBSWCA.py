@@ -32,7 +32,7 @@ def identify_use_case(messages, model = 'gpt-3.5-turbo'):
         model=model,
         messages=messages,
         temperature=0.0,
-        max_tokens=4000,
+        max_tokens=3990,
     )
     return response.choices[0].message['content']
 
@@ -63,18 +63,83 @@ Requirement_Management_1 = {
 }
 
 
-def get_requirement_managment_use_case(Rquirement_Elicitation_steps):
-    return Requirement_Management_1.get(Rquirement_Elicitation_steps, None)
+Requirement_Elicitation_Preparation = {
+    'Prepare_for_Requirement_Elicitation': {
+        'Category': 'Requirements_Elicitation_Preparation',
+        'Steps': {
+            'REP_step_1': 'Understanding the Context: Understand the project or product context, including the overall objectives, the stakeholders, and their roles.',
+            'REP_step_2': 'Setting the Agenda: Explain the purpose of the requirement elicitation session to the user, what the session will involve, and what is expected of them.',
+            'REP_step_3': 'Collecting Preliminary Information: Ask the user to briefly describe their initial ideas about their requirements.',
+            'REP_step_4': 'Asking for Clarifications: Ask clarifying questions whenever the user\'s responses are ambiguous or unclear.',
+            'REP_step_5': 'Validating Understanding: Summarize the requirements back to the user at intervals to ensure correct understanding.',
+            'REP_step_6': 'Keeping the Conversation On Track: Politely steer the conversation back to the topic of requirements if the user goes off on a tangent.',
+            'REP_step_7': 'Wrapping Up: At the end of the session, summarize all the discussed requirements, thank the user for their time, and explain the next steps in the process.',
+        }
+    }
+}
+
+
 
 def get_requirements_by_category(Category):
-    return [value['Steps'] for key, value in Requirement_Management_1.items() if value.get('Category') == Category]
+    merged_dict = {**Requirement_Management_1, **Requirement_Elicitation_Preparation}
+    return [value['Steps'] for key, value in merged_dict.items() if value.get('Category') == Category]
+
+# Assume the following variables hold the outputs from your previous function calls
+requirements_elicitation = get_requirements_by_category('Requirements_Elicitation')
+requirements_elicitation_preparation = get_requirements_by_category('Requirements_Elicitation_Preparation')
+
+# Now you can extract 'RE_step_1' and 'REP_step_1'
+RE_step_1 = requirements_elicitation[0]['RE_step_1']
+REP_step_1 = requirements_elicitation_preparation[0]['REP_step_1']
+
+# Now RE_step_1 and REP_step_1 contain the corresponding steps
+print(RE_step_1)
+print(REP_step_1)
+
+# Define the system message and user message
+System_Message = f'''You are a Business Analyst (BA) agent. You will be get context from the user. You will answer user queries about the context politely and ask follow-up questions to get more information from the user.'''
+user_message_1 = f'''How do we get started with Requirement Elicitation? What questions do you have for me?'''
+
+# Define the assistant's response using the RE_step_1 value
+assistant_message_1 = RE_step_1
+
+# Create the messages list
+messages = [
+    {'role': 'system', 'content': System_Message},
+    {'role': 'user', 'content': user_message_1},
+    {'role': 'assistant', 'content': assistant_message_1},
+]
+
+new_message_content = identify_use_case(messages)
+print(new_message_content)
+
+
+#print(get_requirements_by_category('Requirements_Elicitation'))
+#print(get_requirements_by_category('Requirements_Elicitation_Preparation'))
+
+
+'''
+def generate_output_string(data_list):
+    output_string = ''
+
+    if data_list is None:
+        return output_string
+    for data in data_list:
+        try:
+            if'RA_step' in data:
+                
+
+'''
 
 
 
-print(get_requirements_by_category('Requirements_Analysis'))
 
 
 
+
+
+#------------------------------------------------------------
+"""
 def get_completion_from_chain_prompt_messages(messages, model='gpt-3.5-turbo'):
     response = openai.ChatCompletion.create(
         model=model,
@@ -86,6 +151,7 @@ def get_completion_from_chain_prompt_messages(messages, model='gpt-3.5-turbo'):
 
 delimeter = '####'
 system_message = f'''
+
 you will be given a user query. The query will be delimited with four hashtags, i.e. {delimeter} character.
 output a python list of objects, where each object has the following format
     'category': <requirements, agile, user story, testing, project management, product management>
@@ -134,12 +200,16 @@ when the user lands on the dashboard, then the demographics box shall be display
 Demographics box shall display First Name, Last Name, Email, Phone Number, and Address of the client as per the prototype.
 I also want to discuss the testing scope for this feature.'''
 
+'''
 messages = [
     {'role': 'system', 
      'content': system_message},
     {'role': 'user',
         'content': f'{delimeter} {user_message_1} {delimeter}'},
 ]
+'''
+
+
 
 #category_and_intent_response_1 = get_completion_from_chain_prompt_messages(messages)
 # print(category_and_intent_response_1)
@@ -161,6 +231,7 @@ def get_completion_from_chain_steps_messages(messages, model='gpt-3.5-turbo'):
     return response.choices[0].message['content']
 
 
+"""
 """
 delimeter = '####'
 system_messages = f'''
@@ -261,6 +332,7 @@ print(response)
 """
 
 # helper function to evaluate inputs: classfying the input into primary and secondary categories
+"""
 
 def get_completion_from_steps_messages(messages, 
     model='gpt-3.5-turbo', 
@@ -393,3 +465,4 @@ def get_completion(prompt, model='gpt-3.5-turbo'):
 # input is often called context
 # output is often called completion
 
+"""
