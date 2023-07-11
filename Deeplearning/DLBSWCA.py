@@ -32,9 +32,16 @@ def identify_use_case(messages, model = 'gpt-3.5-turbo'):
         model=model,
         messages=messages,
         temperature=0.0,
-        max_tokens=3990,
+        max_tokens=3000,
     )
-    return response.choices[0].message['content']
+
+    token_dict = {
+    'prompt_tokens': response['usage']['prompt_tokens'],
+    'completion_tokens': response['usage']['completion_tokens'],
+    'total_tokens': response['usage']['prompt_tokens'] + response['usage']['completion_tokens']
+    }
+
+    return token_dict, response.choices[0].message['content']
 
 # Requirement Management Use Cases
 # Requirement Management Use Cases
@@ -93,25 +100,65 @@ RE_step_1 = requirements_elicitation[0]['RE_step_1']
 REP_step_1 = requirements_elicitation_preparation[0]['REP_step_1']
 
 # Now RE_step_1 and REP_step_1 contain the corresponding steps
-print(RE_step_1)
-print(REP_step_1)
 
 # Define the system message and user message
 System_Message = f'''You are a Business Analyst (BA) agent. You will be get context from the user. You will answer user queries about the context politely and ask follow-up questions to get more information from the user.'''
 user_message_1 = f'''How do we get started with Requirement Elicitation? What questions do you have for me?'''
+user_message_2 = f'''Project is a web application that will allow users to financial reports related to their investment portfolio.''' 
+user_message_3 = f'''Primary users are - Investors, Financial Advisors, and Bank colleagues.''' 
+
+delimeter = '####'
+Thought_Process = f'''
+Follow the steps to answer the engage with the user.
+The user message will be delimited with four hashtags, \ i.e. {delimeter}.
+
+Step 1: {delimeter} first decide if the user query is a question or a statement.
+Step 2: {delimeter} If it is a question, then analyze the question and move to step 3 else go to step 5.
+Step 3: {delimeter} If you are not sure about the question, then ask the user to provide more information.
+Step 4: {delimeter} If you have enough information, then answer the question.
+Step 5: {delimeter} If it is a statement, then analyze the statement and move to step 6.
+Step 6: {delimeter} If you are not sure about the statement, then ask the user to provide more information and go back step 5 else go to step 7.
+Step 7: {delimeter} Only ask one question at a time based on the context.
+Step 8: {delimeter} If you have answer or a query, then ask the next question or provide response to th user.
+Step 9: {delimeter} Wait for user response and go to step 1.
+
+use the following format to provide your output:
+step 1: {delimeter} <step 1 resoning>
+step 2: {delimeter} <step 2 resoning>
+step 3: {delimeter} <step 3 resoning>
+step 4: {delimeter} <step 4 resoning>
+step 5: {delimeter} <step 5 resoning>
+step 6: {delimeter} <step 6 resoning>
+step 7: {delimeter} <step 7 resoning>
+step 8: {delimeter} <step 8 resoning>
+step 9: {delimeter} <step 9 resoning>
+response to user: {delimeter} <your response to the user>
+'''
+
+
 
 # Define the assistant's response using the RE_step_1 value
 assistant_message_1 = RE_step_1
+assistant_message_2 = REP_step_1
 
-# Create the messages list
+# Create the messages list with a placeholder for the final assistant message
 messages = [
     {'role': 'system', 'content': System_Message},
     {'role': 'user', 'content': user_message_1},
     {'role': 'assistant', 'content': assistant_message_1},
+    {'role': 'assistant', 'content': assistant_message_2},
+    {'role': 'user', 'content': user_message_2},
+    {'role': 'assistant', 'content': Thought_Process},
+    {'role': 'user', 'content': user_message_3},
+    {'role': 'assistant', 'content': 'placeholder'}  # This will be replaced later
 ]
 
-new_message_content = identify_use_case(messages)
-print(new_message_content)
+new_message_content, token_dict = identify_use_case(messages)
+
+# Replace the placeholder with the new message content
+messages[-1]['content'] = new_message_content
+
+print(new_message_content, token_dict)
 
 
 #print(get_requirements_by_category('Requirements_Elicitation'))
