@@ -2,6 +2,8 @@
 import os
 import openai
 import tiktoken
+import panel as pn
+pn.extension()
 
 
 # 
@@ -141,6 +143,47 @@ response to user: {delimeter} <your response to the user>
 assistant_message_1 = RE_step_1
 assistant_message_2 = REP_step_1
 
+def process_user_message(user_input, all_messages, debug=True):
+    # Step 1: Extract categories from user input
+    categories = get_requirements_by_category(user_input)
+    if debug: print("Step 1: Extracted list of categories.")
+
+    # Step 2: If categories are found, look them up
+    category_information = get_requirements_by_category(categories)
+    if debug: print("Step 2: Looked up category information.")
+
+    # Step 3: Answer the user question
+    messages = [
+        {'role': 'system', 'content': "You are a Business Analyst (BA) agent."},
+        {'role': 'user', 'content': user_input},
+        {'role': 'assistant', 'content': f"Relevant requirement information:\n{category_information}"}
+    ]
+
+    token_dict, final_response = identify_use_case(all_messages + messages)
+    if debug: print("Step 3: Generated response to user question.")
+    all_messages = all_messages + messages[1:]
+
+    return final_response, all_messages
+
+def collect_messages(user_input, all_messages, debug=False):
+    if debug: print(f"User Input = {user_input}")
+    if user_input == "":
+        return
+    response, all_messages = process_user_message(user_input, all_messages, debug=False)
+    all_messages.append({'role':'assistant', 'content':f"{response}"})
+    return response, all_messages
+
+
+user_input = "Requirement Elicitation"
+all_messages = []  # This can be an empty list or a list with initial messages
+response, all_messages = collect_messages(user_input, all_messages)
+
+print(response)
+
+
+
+
+'''
 # Create the messages list with a placeholder for the final assistant message
 messages = [
     {'role': 'system', 'content': System_Message},
@@ -153,12 +196,17 @@ messages = [
     {'role': 'assistant', 'content': 'placeholder'}  # This will be replaced later
 ]
 
+
+
 new_message_content, token_dict = identify_use_case(messages)
 
 # Replace the placeholder with the new message content
 messages[-1]['content'] = new_message_content
 
-print(new_message_content, token_dict)
+print(new_message_content, token_dict) '''
+
+# Moderation API can be used to filter out inappropriate input and output
+# https://docs.openai.com/api-reference/moderation
 
 
 #print(get_requirements_by_category('Requirements_Elicitation'))
