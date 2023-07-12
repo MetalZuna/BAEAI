@@ -1,0 +1,13 @@
+llms are predicting series of words after looking at the language input
+    learning patterns to predict the next word
+
+Given the text that came before
+When looking at the current text
+Then try to predict the next word 
+
+Models
+    GPT
+    Lama
+    Alpaca
+
+    
