@@ -1,3 +1,32 @@
+Prompt engineering is the means by which LLMs are
+programmed via prompts.
+
+How to program a language model to get the desired output
+--Prompt patterns are essential to effective prompt engineering.
+
+-- Applying software patterns to prompt patterns
+    • A name and classification - Each pattern has a name that
+    identifies the pattern and should be used consistently. A
+    classification groups patterns into broad categories, such
+    as creational, structural, or behavioral.
+    • The intent - concisely conveys the purpose the pattern is
+    intended to achieve.
+    • The motivation - documents the underlying problem the
+    pattern is meant to solve and the importance of the
+    problem.
+    • The structure and participants. - The structure describes
+    the different pattern participants (such as classes and
+    objects) and how they collaborate to form a generalized
+    solution.
+    • Example - code concretely maps the pattern to some
+    underlying programming language(s) and aids developers
+    in gaining greater insight into how that pattern can be
+    applied effectively.
+    • Consequences - summarize the pros and cons of applying
+    the pattern in practice.
+
+
+
 llms are predicting series of words after looking at the language input
     learning patterns to predict the next word
 
@@ -10,4 +39,14 @@ Models
     Lama
     Alpaca
 
+Prompt Patterns is way of structuring a statement to llm
+        -- a prompt sets the context for the conversation and tells the LLM what
+        information is important and what the desired output form and
+        content should be.
+
+
+Prompts have the potential for self-adaptation, suggesting other prompts
+to gather additional information or generate related artifacts.
+These advanced capabilities of prompts highlight the importance of engineering them to provide value beyond simple text
+or code generation.
     
