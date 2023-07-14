@@ -40,6 +40,7 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 chat=ChatOpenAI()
 
 llm = ChatOpenAI(temperature=0.1)
+# to load tools into the language model tools = load_tooals(["llm-math", "wikipedia"], llm=llm)
 #memory = ConversationBufferMemory()
 #memory = ConversationBufferWindowMemory(k=1)
 memory = ConversationTokenBufferMemory(llm=llm, max_tokens=1)
@@ -49,6 +50,16 @@ conversation = ConversationChain(
     verbose = False
     )
 
+'''
+To initialize a agent
+agent = initialize_agent(
+    tools,
+    llm,
+    agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, (Chat = agent for chat model, React - prompting technique designed to get the best resoning from the model, Description)
+    handle_parsing_errors=True,
+    verbose=True)
+
+'''
 
 memory.save_context({"input": "What color is the grass"}, {"output": "The grass is green"})
 
