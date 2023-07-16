@@ -315,19 +315,227 @@ D. Interaction
                 
 
     3. Infinite Generation Pattern
-        a. User Intent and description or full context of the problem
-            -- 
-        b. IG Pattern value
+        a. User Intent and description or full context of the problem (intent and context)
+            -- The goal of this pattern is for the llm to generate series of outputs without the need 
+                for the user to provide any input after the initial request
+            -- The goal is to limit how much text the user must type to
+                produce the next output, based on the assumption that the user
+                does not want to continually reintroduce the prompt.
+            -- It works well when user is allowed to maintain the root prompt
+                and the LLM can generate a series of outputs based on the
+                root prompt with little to no additional input from the user. 
+
+
+        b. IG Pattern value (motivation)
+            -- The task may require similar outputs to be generated
+                repeatedly.
+
+        c. structure and key ideas of the pattern
+            -- I would like you to generate output forever, X output(s) at a time.
+            -- (Optional) here is how to use the input I provide between outputs.
+            -- (Optional) stop when I ask you to.
+
+        d. example implementation
+            -- “From now on, I want you to generate a name
+                and job until I say stop. I am going to provide a
+                template for your output. Everything in all caps is a
+                placeholder. Any time that you generate text, try to
+                fit it into one of the placeholders that I list. Please
+                preserve the formatting and overall template that I
+                provide: https://myapi.com/NAME/profile/JOB”
+
+        e. Consequences
+            -- In conversational LLMs, the input to
+                the model at each time step is the previous output and the
+                new user input. Although the details of what is preserved
+                and reintroduced in the next output cycle are model and
+                implementation dependent, they are often limited in scope. The
+                model is therefore constantly being fed the previous outputs
+                and the prompt, which can result in the model losing track of
+                the original prompt instructions over time if they exceed the
+                scope of what it is being provided as input.
+            -- Risks
+                -- The llm model may lose track of the original prompt instructions over time.
+                -- This pattern may work really well with short user corrective feedback to the llm
+                -- This pattern may generate repeated outputs
+
+E. Prompt Improvement patterns
+    1. Question Refinement pattern
+        a. User Intent and description or full context of the problem (intent and context)
+            -- In this pattern the user works witht he llm to  suggest improvements to the prompt
+                or suggest the user better way to ask a question
+        
+        b. QR Pattern value (motivation)
+            -- motivation for using this pattern is to that the user may not know how to ask a question
+               about a particular domain or may not know how to improve the prompt
+            - in either case, the user can leverage llm to suggest improvements to the prompt
+
+        c. structure and key ideas of the pattern
+            -- Within scope X, suggest a better version of the question to use instead
+            -- (Optional) prompt me if I would like to use the better version instead
+
+        d. example implementation
+            -- within the scope of BA interview, suggest a better version of the question to use instead
+                of the one I asked 
+            -- prompt me if I would like to use the better version instead
+            -- Whenever I ask a question about how to write some
+                code, suggest a better version of my question that
+                asks how to write the code in a way that minimizes
+                my dependencies on external libraries
+
+            -- “From now on, whenever I ask a question, ask four
+                additional questions that would help you produce a
+                better version of my original question. Then, use my
+                answers to suggest a better version of my original
+                question.”
+
+        e. Consequences
+            -- Benefits
+                -- This pattern helps bridge the gap between the user's knowledge and the llm's knowledge
+                -- Combines well with Cognitive Verifier pattern
+                -- Combines well with fact check list pattern
+                -- Combines well with reflection pattern
+            -- Risks
+                -- The llm may lose focus or questions or the opposite where focusing on a limited context
+ 
+    2. Alternative Approach Pattern
+        a. User Intent and description or full context of the problem (intent and context)
+            -- The goal of this patter is to have the llm suggest alternative approaches of solving a problem
+            -- To help the user think about the problems and solutions in a different way
+
+        b. AA Pattern value (motivation)
+            -- User may have preconceived notions about how to solve a problem, and it may be hinderence to
+                solving the problem effectively and effectively.
+            -- This pattern can help user think about alternative solutions to a problem
+
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- Within scope X, if there are alternative ways to accomplish the same thing, list the best alternate approaches
+            -- (Optional) compare/contrast the pros and cons of each approach
+            -- (Optional) include the original way that I asked
+            -- (Optional) prompt me for which approach I would like to use
+
+        d. example implementation
+            -- “Whenever I ask you to deploy an application to
+                a specific cloud service, if there are alternative
+                services to accomplish the same thing with the
+                same cloud service provider, list the best alternative
+                services and then compare/contrast the pros and cons
+                of each approach with respect to cost, availability,
+                and maintenance effort and include the original way
+                that I asked. Then ask me which approach I would
+                like to proceed with.”
+
+        e. Consequences
+            -- Benefits
+                -- This pattern is effective and can be widely used with other patterns and solving tasks
+            -- Risks
+          
+    3. Cognitive Verifier
+        a. User Intent and description or full context of the problem (intent and context)
+            -- The goal of this pattern is to break down the problem into smaller subproblems or question into smaller subquestions
+               and have the llm resolve the subproblems or subquestions to provide the final answer to the user
+
+        b. CV Pattern value (motivation)
+            -- Research literature suggests that llms can reason better if a question is broke down
+                into smaller subquestions. 
+            -- Humans may ask high level questions at first, which can make it harder to answer the question
+                effectively and efficiently.
+
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- When you are asked a question, follow these rules
+            -- Generate a number of additional questions that would
+                help more accurately answer the question         
+            -- Combine the answers to the individual questions to
+                produce the final answer to the overall question   
+
+        d. example implementation
+            -- “When I ask you a question, generate three additional questions that would help you give a more
+                accurate answer. When I have answered the three
+                questions, combine the answers to produce the final
+                answers to my original question.”
+            -- “When I ask you a question, generate three additional questions that would help you give a more
+                accurate answer. Assume that I know little about
+                the topic that we are discussing and please define
+                any terms that are not general knowledge. When
+                I have answered the three questions, combine the
+                answers to produce the final answers to my original
+                question.”
+
+        e. Consequences
+            -- Benefits
+                -- Good practice is ask the llm to only generate n number of questions 
+            -- Risks
+                -- llm may miss out on n + 1 question that may be important
+               
+    4. Refusal Breaker
+        a. User Intent and description or full context of the problem (intent and context)
+            -- The goal here is llm asking the user to rephrase a question when the llm is unable 
+                to answer the question for some reason
+
+        b. RB Pattern value (motivation)
+            -- The llm may not be able to answer a question for a variety of reasons
+                this pattern can help the user rephrase the question in a way that the llm can answer
+
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- Whenever you can’t answer a question 
+            -- Explain why you can’t answer the question
+            -- Provide one or more alternative wordings of the question that you could answer
+
+        d. example implementation
+            -- “Whenever you can’t answer a question, explain why
+                and provide one or more alternate wordings of the
+                question that you can’t answer so that I can improve
+                my questions.”
+
+        e. Consequences
+            -- Benefits
+                -- Allows the user to rephrase the question in a way that the llm can answer
+            -- Risks 
+                -- This pattern creates a method of possibily bypassing the llms public domain policy
+                    the user can 'unarm' the llm
+                -- This could lead to user getting answer to the harmful questions
+                
+
+
+F. Context Control
+    1. Context Manager
+        a. User Intent and description or full context of the problem (intent and context)
+            --  The goal of this pattern is to allow the user to control the context of the conversation
+                with the llm. The user can specify and/or remove the context of the conversation with the llm.
+            -- Another goal here is to focus the coverstaion on specific topics and exlude unrelated topics
+
+        b. CM Pattern value (motivation)
+            -- User can control the statement to the llm to generate a response providing user the control over output
+            -- As the conversation gets longer, the llm may start to drift away from the original topic
+                this pattern can help the user to bring the llm back to the original topic
+
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- Within Scope X
+            -- Please Consider y
+            -- Please ignore z
+            -- (Optional) Start over
+             
+            -- The more inclusive and exclusive above list is, the better the pattern will work
+
+        d. example implementation
+            -- “When analyzing the following pieces of code, only consider security aspects.”
+            -- “When analyzing the following pieces of code, do not consider formatting or naming conventions.”
+            -- “Ignore everything that we have discussed. Start over.”
+        
+        e. Consequences
+            -- Risks
+                -- The llm may wipe out patterns that the user is unaware of 
+                -- The risk can be mitigated by asking llm to print out it's default patterns
+
+G. Error Identification
+    1. Fact Check List
+        a. User Intent and description or full context of the problem (intent and context)
+            --  
 
 
 
 
-
-
-
-
-E. Prompt Improvement
-
+    2. Reflection
 
 
     
