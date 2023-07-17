@@ -111,6 +111,8 @@ Fliiped Interaction Pattern
             You should ask questions until you have sufficient information about my current draft messages, audience, and goals. Ask me the first question.
 
 Few Shot Prompting
+    -- in which a language model is given in-context exemplars of input–output pairs
+        before outputting a prediction for a test-time example.
     -- Providing an example of the output
         --Sentiment Analysis of user reviews 
             Positive
