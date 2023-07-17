@@ -530,12 +530,70 @@ F. Context Control
 G. Error Identification
     1. Fact Check List
         a. User Intent and description or full context of the problem (intent and context)
-            --  
+            -- The goal here is that the llm outputs a list of facts that are present in the output
+            -- To inform the user of the facts that the output is based on
+            -- So the user is free to perform due diligence on the facts
 
+        b. FCL Pattern value (motivation)
+            -- The llm may provide convinsing outputs that are factually incorrect, 
+                this pattern displays the facts that the output is based on
+            -- Lifts the burden of search for the facts from the user
 
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- Whenever you output a statement
+            -- List the facts that the statement is based on
+            -- The set of facts should be inserted in a specific location in the output
+            -- The set of facts shoul be fundamental facts that could undermine the veracity 
+                of the output if any of them are incorrect.
 
+        d. example implementation
+            -- “From now on, when you generate an answer, create
+                a set of facts that the answer depends on that should
+                be fact-checked and list this set of facts at the
+                end of your output. Only include facts related to
+                cybersecurity.”
+
+        e. Consequences
+            -- Benefits
+                -- The user can perform due diligence on the facts
+                -- It's helpful when the user is not an expert in the domain
 
     2. Reflection
+        a. User Intent and description or full context of the problem (intent and context)
+            -- The goal here is to have the llm automatically explain the reationale behind the output
+        
+        b. R Pattern value (motivation)
+            -- Allows the user to asses the output validity by looking at the rationale behind the output
+            -- llm may provide faulty output, this pattern can help the user to identify the faulty output
+            -- It can also help debug the llm output
+
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- Whenever you generate an output
+            -- Provide a rationale for the output
+            -- Provide the assumptions behind the output
+            -- (Optional) ... so that I can improve my questions
+
+        d. example implementation
+            -- ”When you provide an answer, please explain the
+                reasoning and assumptions behind your selection
+                of software frameworks. If possible, use specific
+                examples or evidence with associated code samples
+                to support your answer of why the framework is
+                the best selection for the task. Moreover, please
+                address any potential ambiguities or limitations in
+                your answer, in order to provide a more complete
+                and accurate response.”
+        
+        e. Consequences
+            -- Benefits
+                -- 
+            -- Risks
+                -- If the user is not domain expert, then they may not be able to identify the faulty output
+                -- llm can make faulty ratonale and assumptions seem valid
+                    -- combine it with fact check list pattern to mitigate this risk
+
+
+
 
 
     

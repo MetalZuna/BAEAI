@@ -110,7 +110,7 @@ Fliiped Interaction Pattern
         -- I would like you to ask me questions to help me create variations of my marketing materials.  
             You should ask questions until you have sufficient information about my current draft messages, audience, and goals. Ask me the first question.
 
-Few Shot Prompting pattern
+Few Shot Prompting
     -- Providing an example of the output
         --Sentiment Analysis of user reviews 
             Positive
