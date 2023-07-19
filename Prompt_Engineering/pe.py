@@ -47,9 +47,25 @@ Requirement_Elicitation_Preparation = {
     }
 }
 
-# Function to get requirements by category
+# Define the steps for Conduct Requirement Elicitation
+Conduct_Requirement_Elicitation = {
+    'Conduct_Requirement_Elicitation': {
+        'Category': 'Requirements_Elicitation_Conduct',
+        'Steps': {
+            'REC_step_1': 'Identify Stakeholders: Identify who will be affected by the project or product.',
+            'REC_step_2': 'Understand Stakeholder Needs: Understand the needs, problems, and expectations of the stakeholders.',
+            'REC_step_3': 'Elicit Requirements: Use techniques such as interviews, surveys, and observation to elicit requirements from stakeholders.',
+            'REC_step_4': 'Document Requirements: Document the requirements in a clear and concise manner.',
+            'REC_step_5': 'Validate Requirements: Validate the requirements with the stakeholders to ensure they are correct and complete.',
+        }
+    }
+}
+
+# Merge the dictionaries
+merged_dict = {**Requirement_Management_1, **Requirement_Elicitation_Preparation, **Conduct_Requirement_Elicitation}
+
+# Update the get_requirements_by_category function to use the merged dictionary
 def get_requirements_by_category(Category):
-    merged_dict = {**Requirement_Management_1, **Requirement_Elicitation_Preparation}
     return [value['Steps'] for key, value in merged_dict.items() if value.get('Category') == Category]
 
 # Function to process user message
@@ -81,7 +97,6 @@ def collect_messages(user_input, all_messages, debug=False):
     if user_input == "":
         return
     response, all_messages = process_user_message(user_input, all_messages, debug=False)
-    all_messages.append({'role':'assistant', 'content':f"{response}"})
     return response, all_messages
 
 # Function to identify use case
@@ -120,3 +135,7 @@ while True:
 
     # Print the assistant's response
     print("Assistant: ", response)
+
+    # Print the conversation history
+    for message in all_messages:
+        print(f"{message['role']}: {message['content']}")

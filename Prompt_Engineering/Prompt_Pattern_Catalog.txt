@@ -24,14 +24,9 @@ Improvement      | Alternative Approaches
 Context Control  | Context Manager
 -----------------------------------------
 
-
-
-
-
 Intent and context describe the problem to the llm 
 
 X = a word, noun, verb or adjective or a combination of them or a sentence
-
 
 A. There seems to be a need for development of a new form of language to get the desired output from the llm. MetaLanguage for llm Prompting.
     1. Vanderbilt research suggests to call it fundamental contextual statements 
