@@ -26,6 +26,48 @@ from langchain.memory import ConversationSummaryBufferMemory
 
 
 #-------------------------------------------------------------------------------------------------------------------------------
+# Write a function to initialize the chatbot
+# Function collects the user input 
+# Function uses the system message prompt template to generate the system message
+# Function returns the Final response to the user
+
+
+
+
+
+
+
+# Step 1: Analyze the input
+# Step 2: Identify what user wants to do
+# Step 3: Identify destination template for routing the user query
+# Step n: Scan output for relevancy, if satisfied, then display output, else go to step n
+# Step n: Review history prompt
+# Step n
+# Step n: Scan output for relevancy, if not relevant, then go to step n else display output 
+
+delimeter = "####"
+Initial_Thought = f"""
+Follow the steps to answer the engagement with the user.
+The user message will be delimited with four hashtags, \ i.e. {delimeter}.
+
+Step 1: {delimeter} Analyze the input,
+Step 2: {delimeter} Identify what user wants to do,
+Step 3: {delimeter} Identify destination template for routing the user query,
+
+
+"""
+
+Output_Thought = f"""
+Follow the steps to answer the engagement with the user.
+The user message will be delimited with four hashtags, \ i.e. {delimeter}.
+
+Step 1: {delimeter} Scan output for relevancy, if satisfied, then display output, else go to step n,
+Step 2: {delimeter} Review history prompt,
+Step 3: {delimeter} Scan output for relevancy, if not relevant, then go to step n else display output""" 
+
+
+
+
 
 
 app = Flask(__name__)

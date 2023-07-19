@@ -111,7 +111,7 @@ user_message_3 = f'''Primary users are - Investors, Financial Advisors, and Bank
 
 delimeter = '####'
 Thought_Process = f'''
-Follow the steps to answer the engage with the user.
+Follow the steps to answer the engagement with the user.
 The user message will be delimited with four hashtags, \ i.e. {delimeter}.
 
 Step 1: {delimeter} first decide if the user query is a question or a statement.

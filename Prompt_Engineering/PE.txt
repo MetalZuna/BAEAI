@@ -1,7 +1,7 @@
 classes
     Controller objects
     Views objects
-    Data objects  
+    Model objects (data)
 
 Prompt engineering is the means by which LLMs are
 programmed via prompts.
