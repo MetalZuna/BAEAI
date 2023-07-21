@@ -6,6 +6,8 @@ import string
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')  # Get API Key from environment variable
 MODEL = 'gpt-3.5-turbo'
 
+
+
 class RiddleGame:
     def __init__(self):
         self.previous_answers = []
@@ -13,7 +15,7 @@ class RiddleGame:
     def _openai_api_call(self, prompt):
         try:
             messages = [
-                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "system", "content": "You are a helpful assistant who writes great riddles."},
                 {"role": "user", "content": prompt}
             ]
             response = openai.ChatCompletion.create(model=MODEL, messages=messages)
@@ -26,15 +28,17 @@ class RiddleGame:
         return text.translate(str.maketrans('', '', string.punctuation)).strip().lower()
 
     def _get_related_thing(self, topic):
-        related_thing = self._openai_api_call(f"Think of a word related to {topic} that is not too obvious and not any of these: {self.previous_answers}")
-        if related_thing is None:
-            return None
-        if len(related_thing.split()) > 1:
-            related_thing = self._openai_api_call(f"Simplify {related_thing} to a single word.")
-        
-        if related_thing not in self.previous_answers:
-            self.previous_answers.append(related_thing)
-            return related_thing
+        while True:
+            related_thing = self._openai_api_call(f"Think of a word related to {topic} that is not too obvious and not any of these: {self.previous_answers}")
+            if related_thing is None:
+                print("Couldn't generate a related thing. Please try again.")
+                return None
+            if len(related_thing.split()) > 1:
+                related_thing = self._openai_api_call(f"Simplify {related_thing} to a single word.")
+            
+            if related_thing not in self.previous_answers:
+                self.previous_answers.append(related_thing)
+                return related_thing
 
     def _get_riddle(self, age, player_level, thing):
         riddle = self._openai_api_call(f"Create a riddle for an {age} years old and a {player_level} about {thing}, don't mention {thing} in your riddle. Please ensure the riddle is age and level appropriate, and error-free.")
@@ -48,20 +52,10 @@ class RiddleGame:
             print("Couldn't generate a hint. Please try again.")
         return hint
 
-    def _validate_topic(self, topic):
-        related_thing = self._get_related_thing(topic)
-        if related_thing is None:
-            print("Invalid topic. Please provide a sensible topic.")
-            return False
-        return True
-
     def run(self):
         while True:
-            while True:
-                topic = input("Enter a topic for the riddle: ")
-                if self._validate_topic(topic):
-                    break
-
+            topic = input("Enter a topic for the riddle: ")
+            
             while True:
                 age = input("Enter an age for the riddle: ")
                 if age.isdigit():
@@ -77,9 +71,13 @@ class RiddleGame:
                     print("Invalid level. Please enter a number.")
             
             related_thing = self._get_related_thing(topic)
+            if related_thing is None:
+                continue
             print(f"Related thing is {related_thing}.")
 
             riddle = self._get_riddle(age, player_level, related_thing)
+            if riddle is None:
+                continue
             print(f"Riddle is - \n {riddle}.")
 
             for attempt in range(3):
@@ -91,6 +89,8 @@ class RiddleGame:
                 else:
                     if attempt < 2:
                         hint = self._get_hint(related_thing)
+                        if hint is None:
+                            break
                         print(f"Incorrect. Here's a hint: {hint}. Try again.")
                     else:
                         print(f"Incorrect. The correct answer was: {related_thing}.")
