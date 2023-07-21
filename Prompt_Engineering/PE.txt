@@ -13,7 +13,7 @@ How to program a language model to get the desired output
     • A name and classification - Each pattern has a name that
     identifies the pattern and should be used consistently. A
     classification groups patterns into broad categories, such
-    as creational, structural, or behavioral.
+    as creation, structural, or behavioral.
     • The intent - concisely conveys the purpose the pattern is
     intended to achieve.
     • The motivation - documents the underlying problem the
@@ -38,7 +38,7 @@ response = ....
 
 
 user input = "can you extract the questions from the text and provide answers to the questions {document}
-document extact 
+document extract 
 system input = "find the questions in the document"
 
 questions = response 1
@@ -49,7 +49,7 @@ final answer = predict..
 
 Prompt Limit is important to make use of the space
 
-use previous reponses from the llm can be used to get accurate outputs
+use previous responses from the llm can be used to get accurate outputs
 
 #-----------------------------------------------------------------------------------------------------------------
 Saffron Pattern ...
@@ -85,7 +85,7 @@ Question Refinement Pattern
 
 Cognitive Verifier pattern
     -- Tell the GPT to breakdown a task into smaller tasks 
-    -- telling GPT to expand on a question from broad to focused --> Converting original qusetion into Sub-question
+    -- telling GPT to expand on a question from broad to focused --> Converting original question into Sub-question
 
     -- When you are asked a question, follow these rules. Generate a number of additional questions that would help you more accurately answer the question. 
         Combine the answers to the individual questions to produce the final answer to the overall question.
@@ -97,12 +97,12 @@ Cognitive Verifier pattern
 
 Audience Persona Pattern
     -- Asking the LLM to product an output for a specific Audience
-    -- Explain how the supply chains for US grocery stores work to me. Assume that I am Ghengis Khan. 
+    -- Explain how the supply chains for US grocery stores work to me. Assume that I am Genghis Khan. 
 
 
 
-Fliiped Interaction Pattern
-    -- Getting LLM to ask the user questions to achhieve a goal or task
+Flipped Interaction Pattern
+    -- Getting LLM to ask the user questions to achieve a goal or task
     Example
         -- I would like you to ask me questions to achieve X 
         -- You should ask questions until condition Y is met or to achieve this goal (alternatively, forever) 
@@ -117,7 +117,7 @@ Few Shot Prompting
         --Sentiment Analysis of user reviews 
             Positive
             Negative
-            Nuteral
+            Neutral
 
     -- Few-Shot for Actions
         -- Providing examples of actions and then asking for it to predict the next actions
@@ -147,7 +147,7 @@ Few Shot Prompting
         -- Few shot pattern can be used to teach llm to grade output
             -- input
             -- Output
-            -- explaination
+            -- explanation
             -- grade
     
 
@@ -263,24 +263,9 @@ Alternative Approaches Pattern
             contrast the approach with the original approach implied by my request to you.
 
 
+# ----------------------------------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-----------------------------------------------------------------------------------------------------------------------------------------------
 llms are predicting series of words after looking at the language input
     learning patterns to predict the next word
 
