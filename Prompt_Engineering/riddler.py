@@ -1,90 +1,103 @@
 import openai
+import os
 import string
 
 # Set the OpenAI API Key
-OPENAI_API_KEY = 'your-api-key'
-
-# Define the model
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')  # Get API Key from environment variable
 MODEL = 'gpt-3.5-turbo'
 
-# Define the delimiter
-DELIMITER = "####"
+class RiddleGame:
+    def __init__(self):
+        self.previous_answers = []
 
-while True:
-    # Step 0: Initialize the game
-    print(f"Step 0: {DELIMITER} Initializing the riddle game.")
+    def _openai_api_call(self, prompt):
+        try:
+            messages = [
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ]
+            response = openai.ChatCompletion.create(model=MODEL, messages=messages)
+            return response['choices'][0]['message']['content']
+        except Exception as e:
+            print(f"Error: {str(e)}")
+            return None
 
-    # Step 1: Analyze user input
-    user_input = input("Enter a topic for the riddle: ")
-    age = input("Enter a age for the riddle: ")
-    player_level = input("Enter your level for the riddle: ")
-    print(f"Step 1: {DELIMITER} User input is {user_input} and I am {age} years old and the player level is {player_level}.")
+    def _clean_text(self, text):
+        return text.translate(str.maketrans('', '', string.punctuation)).strip().lower()
 
-    # Step 2: Think of something related to the user input
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": f"Think of a word related to {user_input} that is not too obvious."}
-    ]
-    response = openai.ChatCompletion.create(model=MODEL, messages=messages)
-    related_thing = response['choices'][0]['message']['content']
-    print(f"Step 2: {DELIMITER} Related thing is {related_thing}.")
+    def _get_related_thing(self, topic):
+        related_thing = self._openai_api_call(f"Think of a word related to {topic} that is not too obvious and not any of these: {self.previous_answers}")
+        if related_thing is None:
+            return None
+        if len(related_thing.split()) > 1:
+            related_thing = self._openai_api_call(f"Simplify {related_thing} to a single word.")
+        
+        if related_thing not in self.previous_answers:
+            self.previous_answers.append(related_thing)
+            return related_thing
 
+    def _get_riddle(self, age, player_level, thing):
+        riddle = self._openai_api_call(f"Create a riddle for an {age} years old and a {player_level} about {thing}, don't mention {thing} in your riddle. Please ensure the riddle is age and level appropriate, and error-free.")
+        if riddle is None:
+            print("Couldn't generate a riddle. Please try again.")
+        return riddle
 
-    # Step 2.5: Simplify the related thing to a single word if necessary
-    if len(related_thing.split()) > 1:
-        messages = [
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": f"Simplify {related_thing} to a single word."}
-        ]
-        response = openai.ChatCompletion.create(model=MODEL, messages=messages)
-        simplified_related_thing = response['choices'][0]['message']['content']
-    else:
-        simplified_related_thing = related_thing
-    print(f"Step 2.5: {DELIMITER} Simplified related thing is {simplified_related_thing}.")
+    def _get_hint(self, thing):
+        hint = self._openai_api_call(f"Provide a one line hint for {thing} without mentioning the {thing}.")
+        if hint is None:
+            print("Couldn't generate a hint. Please try again.")
+        return hint
 
+    def _validate_topic(self, topic):
+        related_thing = self._get_related_thing(topic)
+        if related_thing is None:
+            print("Invalid topic. Please provide a sensible topic.")
+            return False
+        return True
 
+    def run(self):
+        while True:
+            while True:
+                topic = input("Enter a topic for the riddle: ")
+                if self._validate_topic(topic):
+                    break
 
-    # Step 3: Create a riddle game around the simplified related thing
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant that creates riddles."},
-        {"role": "user", "content": f"Create a riddle for a {age} and {player_level} about {simplified_related_thing}, don't mention {simplified_related_thing} in your riddle."}
-    ]
-    response = openai.ChatCompletion.create(model=MODEL, messages=messages)
-    riddle = response['choices'][0]['message']['content']
-    print(f"Step 3: {DELIMITER} Riddle is - \n {riddle}.")
+            while True:
+                age = input("Enter an age for the riddle: ")
+                if age.isdigit():
+                    break
+                else:
+                    print("Invalid age. Please enter a number.")
 
+            while True:
+                player_level = input("Enter your level for the riddle: ")
+                if player_level.isdigit():
+                    break
+                else:
+                    print("Invalid level. Please enter a number.")
+            
+            related_thing = self._get_related_thing(topic)
+            print(f"Related thing is {related_thing}.")
 
+            riddle = self._get_riddle(age, player_level, related_thing)
+            print(f"Riddle is - \n {riddle}.")
 
-    # Steps 4-8: Prompt the user for an answer and provide hints or the answer as needed
-    for attempt in range(3):
-        # Step 4: Prompt the user for an answer and wait for input
-        user_answer = input("Enter your answer: ")
-        print(f"Step 4: {DELIMITER} User answer is {user_answer}.")
+            for attempt in range(3):
+                user_answer = input("Enter your answer: ")
 
-        # For simplicity, let's assume the correct answer is the simplified related thing
-        # Remove punctuation and convert to lowercase for comparison
-        user_answer_clean = user_answer.translate(str.maketrans('', '', string.punctuation)).strip().lower()
-        simplified_related_thing_clean = simplified_related_thing.translate(str.maketrans('', '', string.punctuation)).strip().lower()
-        if user_answer_clean == simplified_related_thing_clean:
-            # Step 5: If the user input is correct, congratulate the user and ask if they want to play again
-            print(f"Step 5: {DELIMITER} Correct! Congratulations!")
-            break
-        else:
-            if attempt < 2:
-                # Step 6/7: If the user input is incorrect, then provide a hint and ask the user to try again
-                messages = [
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": f"Provide a one line hint for {simplified_related_thing} without mentioning the {simplified_related_thing}."}
-                ]
-                response = openai.ChatCompletion.create(model=MODEL, messages=messages)
-                hint = response['choices'][0]['message']['content']
-                print(f"Step {6+attempt}: {DELIMITER} Incorrect. Here's a hint: {hint}. Try again.")
-            else:
-                # Step 8: If the user input is incorrect again, then provide the answer and ask the user if they want to play again
-                print(f"Step 8: {DELIMITER} Incorrect. The correct answer was: {simplified_related_thing}.")
-    else:
-        continue
+                if self._clean_text(user_answer) == self._clean_text(related_thing):
+                    print(f"Correct! Congratulations!")
+                    break
+                else:
+                    if attempt < 2:
+                        hint = self._get_hint(related_thing)
+                        print(f"Incorrect. Here's a hint: {hint}. Try again.")
+                    else:
+                        print(f"Incorrect. The correct answer was: {related_thing}.")
 
-    play_again = input("Do you want to play again? (yes/no): ")
-    if play_again.lower() != "yes": 
-        break
+            play_again = input("Do you want to play again? (yes/no): ")
+            if play_again.lower() != "yes": 
+                break
+
+game = RiddleGame()
+game.run()
