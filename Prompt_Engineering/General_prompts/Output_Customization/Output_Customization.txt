@@ -119,3 +119,7 @@ response to user: {delimiter} <your response to the user>
 Make sure to include the delimiter to separate every step and response to the user
 
 
+#------------------------------------------------------------------------------------------------------------------------------
+# expert programmer prompt template - to look at github code and provide feedback
+
+
