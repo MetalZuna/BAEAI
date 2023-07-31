@@ -14,7 +14,13 @@ class RiddleGame:
     def _openai_api_call(self, prompt):
         messages = [
             {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "system", "content": "Easy riddle problem - "}, 
+            {"role": "system", "content": "Create riddle problems - "},
+            {"role": "user", "content": "Topic = food, Age = 10, Player Level = 1"},
+            {"role": "system", "content": "Related thing = apple"},
+            {"role": "user", "content": "topic = animal, age = 12, player level = 5"},
+            {"role": "system", "content": "Related thing = monkey"},
+            {"role": "user", "content": "topic = country, age = 12, player level = 10"},
+            {"role": "system", "content": "Related thing = india"},
             {"role": "user", "content": prompt}
         ]
         response = openai.ChatCompletion.create(model=MODEL, messages=messages)
@@ -25,7 +31,7 @@ class RiddleGame:
 
     def _get_related_thing(self, topic):
         while True:
-            related_thing = self._openai_api_call(f"Think of a word related to {topic} that is not too obvious and not any of these: {self.previous_answers}")
+            related_thing = self._openai_api_call(f"Think of something related to {topic}, make sure it's not too obvious and not any of these: {self.previous_answers}")
             if len(related_thing.split()) > 1:
                 related_thing = self._openai_api_call(f"Simplify {related_thing} to a single word.")
             
@@ -45,13 +51,13 @@ class RiddleGame:
             topic = input("Enter a topic for the riddle: ")
             age = input("Enter an age for the riddle: ")
             player_level = input("Enter your level for the riddle: ")
-            print(f"Step 1: {DELIMITER} User input is {DELIMITER} {topic} {DELIMITER} and user is {DELIMITER} {age} {DELIMITER} years old and the player level is {DELIMITER} {player_level} {DELIMITER}.")
+            print(f"Step 1: User input is {DELIMITER} {topic} {DELIMITER} and user age is is {DELIMITER} {age} {DELIMITER}. and the user level is {DELIMITER} {player_level} {DELIMITER}.")
 
             related_thing = self._get_related_thing(topic)
-            print(f"Step 2: {DELIMITER} Related thing is {related_thing}.")
+            print(f"Step 2: Related thing is {DELIMITER} {related_thing} {DELIMITER}")
 
             riddle = self._get_riddle(age, player_level, related_thing)
-            print(f"Step 3: {DELIMITER} Riddle is - \n {riddle}.")
+            print(f"Step 3: Riddle is - \n {DELIMITER} {riddle} {DELIMITER} ")
 
             for attempt in range(3):
                 user_answer = input("Enter your answer: ")

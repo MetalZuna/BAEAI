@@ -102,6 +102,14 @@ Make sure to include the delimiter to separate every step and response to the us
 # ===============================================================================================================================================
 # ===============================================================================================================================================
 
+Riddler steps to create a riddle game 
+
+step 0: {delimiter} understand the user input for topic of the riddle game and go to step 1
+step 1: {delimiter} consider user age to create an age appropriate riddle game and go to step 2
+step 2: {delimiter} consider player level to determine the difficulty of the riddle. 1 is easiest, 5 is medium, and 10 is hardest. and go to step 3
+step 3: {delimiter} think of a related thing to the topic and go to step 4
+step 4: {delimiter} make
+
 
 
 
