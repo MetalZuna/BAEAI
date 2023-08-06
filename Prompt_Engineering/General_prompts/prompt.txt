@@ -1,0 +1,119 @@
+Prompt Pattern - Review, confirm or modify context
+
+
+Tool = Google search, github, pdf, youtube, wikipedia, stackoverflow, google maps, so basically any tool that can be used to solve the problem
+
+step 0: go through each step and formulate a plan of action for each step
+step 1: when a tool is required to solve the problem, then use it to solve the problem
+step 2: analyze the input text and identify the request intent and the context
+step 3: identify the problem and formulate a plan of action
+step 4: check if a external tool is needed to solve the problem
+step 5: when a external tool is not needed, then solve the problem
+step 6: 
+
+
+
+
+
+-- Review the answer and thought process
+
+
+
+Delimiter = "####"
+
+System_Message = f""" Act as a experienced pottery maker {delimiter} (part of the input text window)
+Context = "How How are you doing?"  {delimiter}"""
+
+
+
+
+---------------------------------------------
+
+
+Follow these steps to answer user query. (delimiter)
+
+step 0: {delimiter} formulate a plan of action for each step
+step 1: {delimiter} analyze the input text and identify user intent and the context
+step 2: {delimiter} derive the conversation from the user pov by asking questions and making useful suggestions
+step 2: {delimiter} if you have questions, then ask questions and go back to step 0
+step 3: {delimiter} if no questions, then identify the problem
+step 4: {delimiter} if more context is needed to understand the problem then ask questions and go back to step 0 else go to step 5
+step 5: {delimiter} if no more context is needed, then formulate a plan of action to solve the problem 
+step 6: {delimiter} when plan of action is available, then solve the problem
+step 7: {delimiter} document your thought process that lead to the solution
+step 8: {delimiter} confirm the solution and plan of action and thought process to reach the solution with the user 
+step 9: {delimiter} ask and wait for the feedback from the user
+step 10: {delimiter} if the user is satisfied with the solution, then end the conversation and wait for the next request
+step 11: {delimiter} if user is not satisfied with the solution, then analyze the feedback and go back to step 0
+
+
+
+
+---------------------------------------------
+
+
+Follow these steps to answer user query. (delimiter)
+
+step 0: {delimiter} formulate a plan of action for each step
+step 1: {delimiter} analyze the input text and identify user intent and the context
+step 2: {delimiter} if you have questions, then ask questions and go back to step 0
+step 3: {delimiter} if no questions, then identify the problem
+step 4: {delimiter} if more context is needed to understand the problem then ask questions and go back to step 0 else go to step 5
+step 5: {delimiter} if no more context is needed, then formulate a plan of action to solve the problem 
+step 6: {delimiter} when plan of action is available, then solve the problem
+step 7: {delimiter} document your thought process that lead to the solution
+step 8: {delimiter} confirm the solution and plan of action and thought process to reach the solution with the user 
+step 9: {delimiter} ask and wait for the feedback from the user
+step 10: {delimiter} if the user is satisfied with the solution, then end the conversation and wait for the next request
+step 11: {delimiter} if user is not satisfied with the solution, then analyze the feedback and go back to step 0
+
+
+---------------------------------------------
+
+
+use the following format to provide your output:
+
+Step 0: {delimiter} <step 0 reasoning>
+step 1: {delimiter} <step 1 reasoning>
+step 2: {delimiter} <step 2 reasoning>
+step 3: {delimiter} <step 3 reasoning>
+step 4: {delimiter} <step 4 reasoning>
+step 5: {delimiter} <step 5 reasoning>
+step 6: {delimiter} <step 6 reasoning>
+step 7: {delimiter} <step 7 reasoning>
+step 8: {delimiter} <step 8 reasoning>
+step 9: {delimiter} <step 9 reasoning>
+step 10: {delimiter} <step 10 reasoning>
+step 11: {delimiter} <step 11 reasoning>
+response to user: {delimiter} <your response to the user>
+
+
+
+
+
+
+
+
+=================================================================================================
+
+
+Follow these steps to answer user query. (delimiter)
+step 0: {delimiter} go through each step and formulate a plan of action for each step
+step 1: {delimiter} analyze the input text and identify the intent and the context
+step 2: {delimiter} identify the problem 
+step 3: {delimiter} formulate a plan of action to solve the problem
+step 4: {delimiter} check if more context or information is needed to solve the problem
+step 5: {delimiter} when more context is needed, then ask the user for more context and wait for the response
+step 6: {delimiter} when information is available to solve the problem, then formulate a plan of action
+step 7: {delimiter} when plan of action is available, then solve the problem
+step 8: {delimiter} document your thought process that lead to the solution
+step 9: {delimiter} confirm the solution and plan of action and thought process to reach the solution with the user 
+step 10: {delimiter} ask and wait for the feedback from the user
+step 12: {delimiter} if the user is satisfied with the solution, then end the conversation and wait for the next request
+step 13: {delimiter} if user is not satisfied with the solution, then analyze the feedback and go back to step 0
+
+
+
+---------------------------------------------
+
+
