@@ -1,0 +1,75 @@
+All good ideas are simple to understand by most at the macro level
+Ideas can be complex at the micro level
+some don't have to complicated at the micro level, and others are complex by nature
+
+
+Currently OpenAI ChatGPT allows for the user to provide a root prompt that the model can use to solve problems
+it's a very powerful feature with limitations
+the fundamental limitation is that the root prompt is static, and the user has to manually change the prompt pattern for the language model
+
+so if I have a prompt library to solve different problems 
+
+i.e. one library to help the user find a specific type of product online
+or another library to help answer a question related to business analysis
+
+I'll to have manually switch the root prompts from one use case to another....
+
+so the underlying need here is to give the model ability to interact with the prompt libraries 
+and as well as the ability to determine and use the correct prompt library and prompt pattern so the model can produce an accurate output
+
+
+there's two ways of going about setting up the process of selecting the best prompt
+for that we'll need to narrow down the user intent and subject of the conversation
+
+
+Intent and subject area can either be provided by the user at any given point, in a "loose" format  --> this is where the user talks freely without any constraints. 
+so there will be wide variation in how different users communicate
+
+or
+
+the user can be given constraints to follow - sort of guardrails for the user to guide the conversation --> for simplicity sake, lets say the user is filling out a form  
+
+or a dynamic combination of both
+
+Intent and subject area can be understood by the model by asking helpful questions to narrow the user intent and area of focus --> This is where the model should ask questions for understanding
+user intent and subject area and context. --> this might be the most effective form of language model engagement as the both, the user and model are building up the conversation 
+
+they are setting up conversation goal or goals together and pinpointing the problem that the model needs to solve for the user.
+
+A prompt pattern cab be used to identify the five "W's", that would aid the model to build the conversation and set the context.
+
+what is the user problem or problems that needs to solved?
+when does the problem need to be solved? 
+where does the problem need to be solved? 
+who is providing the problem (user persona) and who is solving the problem (model persona) and who else is part of conversation (consumer persona)?
+why is the problem being solved?; value in solving the problem
+
+
+Here the model can adopt a prompt pattern to figure out how to solve the problem
+ 
+the pattern to be selected to the solve the problem can come from two sources
+
+1. user guides the model to select a prompt pattern
+
+	either directly from the user - basically it will work like the current ChatGPT feature of setting the root prompt. But this requires manual work.
+	This is where the user telling the model "use the prompt pattern I am giving you to solve my problem"
+	here the user can either write the prompt pattern
+	or the user may point to an existing pattern by selecting an option
+	
+
+2. model selects a prompt pattern by understanding user need
+	
+	here the model would look at the context given by the user and select a prompt pattern.
+	this method would work well if the model can confirm it's plan of action with the user
+	
+	meaning that model confirms the prompt pattern selection it has made to solve the problem giving the user more control over the model output
+
+ 
+	
+	
+
+	
+
+
+
+
