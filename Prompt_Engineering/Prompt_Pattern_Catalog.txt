@@ -22,7 +22,7 @@ Improvement      | Alternative Approaches
                  | Cognitive Verifier
                  | Refusal Breaker
 -----------------------------------------
-Context Control  | Context Manager
+Context Control  | Context Manager - The problem
 -----------------------------------------
 
 Intent and context describe the problem to the llm 

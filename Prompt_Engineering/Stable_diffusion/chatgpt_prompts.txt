@@ -115,6 +115,7 @@ step 6: {delimiter} <step 6 reasoning>
 step 7: {delimiter} <step 7 reasoning>
 step 8: {delimiter} <step 8 reasoning>
 step 9: {delimiter} <step 9 reasoning>
+step 10: {delimiter} <step 10 reasoning>
 response to user: {delimiter} <your response to the user>
 
 Make sure to include the delimiter to separate every step and response to the user"""

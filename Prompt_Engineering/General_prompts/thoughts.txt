@@ -1,6 +1,15 @@
 All good ideas are simple to understand by most at the macro level
-Ideas can be complex at the micro level
-some don't have to complicated at the micro level, and others are complex by nature
+Ideas can be complex at the micro level because average mind's inability to track multiple variables at the same time
+In isolation, each variable should be simple to understand, but when combined with other variables, the complexity increases
+
+
+Recently I read an article where Sam Altman along with other AI experts were discussing hallucination issue with AI models. I was worried they had it all figured out, but they don't.
+
+In this case, bad new is good news; there are still big challenges ahead.
+
+That's music to my ears. it means that I have a something that really excites me to be part of the solution.
+
+===========================================
 
 
 Currently OpenAI ChatGPT allows for the user to provide a root prompt that the model can use to solve problems
@@ -29,10 +38,10 @@ or
 
 the user can be given constraints to follow - sort of guardrails for the user to guide the conversation --> for simplicity sake, lets say the user is filling out a form  
 
-or a dynamic combination of both
+or a dynamic combination of both; lose talk and form filling
 
 Intent and subject area can be understood by the model by asking helpful questions to narrow the user intent and area of focus --> This is where the model should ask questions for understanding
-user intent and subject area and context. --> this might be the most effective form of language model engagement as the both, the user and model are building up the conversation 
+user intent and subject area and context. --> this might be the most effective form of language model engagement as both; user and the model are building up the conversation 
 
 they are setting up conversation goal or goals together and pinpointing the problem that the model needs to solve for the user.
 
@@ -52,7 +61,7 @@ the pattern to be selected to the solve the problem can come from two sources
 1. user guides the model to select a prompt pattern
 
 	either directly from the user - basically it will work like the current ChatGPT feature of setting the root prompt. But this requires manual work.
-	This is where the user telling the model "use the prompt pattern I am giving you to solve my problem"
+	This is where the user is telling the model "use the prompt pattern I am giving you to solve my problem"
 	here the user can either write the prompt pattern
 	or the user may point to an existing pattern by selecting an option
 	
@@ -62,11 +71,13 @@ the pattern to be selected to the solve the problem can come from two sources
 	here the model would look at the context given by the user and select a prompt pattern.
 	this method would work well if the model can confirm it's plan of action with the user
 	
-	meaning that model confirms the prompt pattern selection it has made to solve the problem giving the user more control over the model output
+	meaning that model confirms the prompt pattern selection it has made to solve the problem giving the user more control over the model output. 
+	This confirmation should can happen before the model starts to solve the problem or simultaneously as the model is solving the problem.
 
  
 	
 	
+individual
 
 	
 
