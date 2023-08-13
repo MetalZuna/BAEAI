@@ -98,8 +98,9 @@ Input Semantics  | Meta Language Creation
 
 -----------------------------------------
 
-Output           | Output Automated
-Customization    | Persona
+Output Manager   | Output Automated
+(Customization)  | Persona Manager x 
+                 | The Challenger x
                  | Visualization Generator
                  | Recipe
                  | Template
@@ -109,7 +110,8 @@ Customization    | Persona
 
 Interaction      | Flipped Interaction
                  | Game Play
-                 | Infinite Generation                 
+                 | Infinite Generation
+                 | The Challenger Pattern             
 
 -----------------------------------------
 
@@ -129,6 +131,39 @@ Improvement      | Alternative Approaches
 Context Control  | Context Manager - The problem
 
 -----------------------------------------
+Display Manager  | Display Manager
+                 | 
+
+-----------------------------------------
+
+    Problem Manager
+        Identifying the problem
+        Help user identify the problem
+        Help user take Alternative Approach  
+        Cognitive Verifier
+        Refusal Breaker
+
+    -----------------------------------------
+
+    Persona Manager
+        Roles
+        Flipped Interaction 
+        The Challenger
+        Critic
+        Tone 
+-----------------------------------------
+
+    Solution Manager
+        Game Play 
+        Alternative Approach 
+    -----------------------------------------
+
+    Display Manager
+        Display language format
+        Display language style
+
+
+
 
 
 
@@ -510,7 +545,7 @@ D. Interaction
 E. Prompt Improvement patterns
     1. Question Refinement pattern
         a. User Intent and description or full context of the problem (intent and context)
-            -- In this pattern the user works witht he llm to  suggest improvements to the prompt
+            -- In this pattern the user works with the llm to  suggest improvements to the prompt
                 or suggest the user better way to ask a question
         
         b. QR Pattern value (motivation)
@@ -710,7 +745,7 @@ G. Error Identification
 
     2. Reflection
         a. User Intent and description or full context of the problem (intent and context)
-            -- The goal here is to have the llm automatically explain the reationale behind the output
+            -- The goal here is to have the llm automatically explain the rationale behind the output
         
         b. R Pattern value (motivation)
             -- Allows the user to asses the output validity by looking at the rationale behind the output
