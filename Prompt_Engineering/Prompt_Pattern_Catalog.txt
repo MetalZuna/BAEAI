@@ -1,29 +1,117 @@
+
+
+System Prompt
+    Structural Design - High-Level Patterns (Overall Design Framework):
+            Natural Language Prompt (NLP)
+            Behavior Driven Prompt (BDP)
+            Acceptance Criteria Driven Pattern (ACDP)
+            Integrated Prompt Pattern (IPP)
+  
+                Content Design -Lower-Level Prompt Patterns (Specific Content and Details):
+                        Output Control
+                        Output Customization, Output Automated, Persona, Visualization Generator, Recipe, Template, Response Format Filter
+                        Interaction Control
+                        Flipped Interaction, Game Play, Infinite Generation
+                        Error Identification
+                        Fact Check List, Reflection
+                        Prompt Improvement
+                        Question Refinement, Alternative Approaches, Cognitive Verifier, Refusal Breaker
+                        Context Control
+                        Context Manager - The problem
+
+User Prompt
+    Structural Design - High-Level Patterns (Same as System Prompt, if applicable):
+            (List Here)
+                Content Design - Lower-Level Prompt Patterns (Specific Content and Details):
+                        (Same Subcategories and Content Patterns as System Prompt)
+
+
+Keywords and Values in Prompt Design
+
+Keywords
+    Definition: Keywords act as labels or identifiers that help structure the prompt and provide context to the interaction.
+    Role: They guide the design by categorizing and organizing information.
+    Common Keywords:
+    Principal: Key principles or guidelines
+    Step: Sequential guidance or process flow
+    Condition: Conditional logic or rules
+    Requirement: Specific user or system requirements
+    Context: Background or situational information
+    Code: Specific code or technical details
+    Task: Current, main, or sub-tasks within a process
+    Category: Grouping or classification labels
+    Custom Keywords: Any specific label or identifier that fits the context or needs of the prompt
+    Flexibility: Keywords can be customized and adapted to fit various scenarios and use cases.
+
+Values
+    Definition: Values are the specific details, instructions, or content associated with each keyword.
+    Role: They provide the substance or information related to each keyword, guiding the user's actions or understanding.
+    Types of Values:
+    Descriptions: Detailed explanations or descriptions related to a keyword
+    Instructions: Specific guidance or commands associated with a keyword
+    Criteria: Metrics, standards, or conditions related to a keyword
+    Examples: Concrete examples or use cases related to a keyword
+    Custom Values: Any specific detail or content that fits the context or needs of the keyword
+    Relationship with Keywords: Values are intrinsically linked to keywords, providing the necessary context, details, and guidance related to each keyword.
+    Usage in Prompt Design
+    Combining Keywords and Values: Keywords and values are used together to create clear and effective prompts. For example:
+    Keyword: "Principal"; Value: "Conciseness is the key."
+    Keyword: "Step"; Value: "Analyze the input text and identify user intent."
+    Customization: Both keywords and values can be customized to fit the specific context, goals, and requirements of the prompt.
+
+
+
+
 Pattern Category | Prompt Pattern
 =========================================
-Input Semantics  | Meta Language Creation
+System Prompt    | Natural Language Prompt
+Pattern          | Behavior Driven Prompt
+                 | Acceptance Criteria Driven Pattern
+                 | Integrated Prompt Pattern 
+
 -----------------------------------------
+User Prompt      |
+Pattern          | 
+
+-----------------------------------------
+
+Input Semantics  | Meta Language Creation
+
+-----------------------------------------
+
 Output           | Output Automated
 Customization    | Persona
                  | Visualization Generator
                  | Recipe
                  | Template
                  | Response Format Filter
+
 -----------------------------------------
+
 Interaction      | Flipped Interaction
                  | Game Play
                  | Infinite Generation                 
+
 -----------------------------------------
+
 Error            |   
 Identification   | Fact Check List
                  | Reflection
+
 -----------------------------------------
+
 Prompt           | Question Refinement
 Improvement      | Alternative Approaches
                  | Cognitive Verifier
                  | Refusal Breaker
+
 -----------------------------------------
+
 Context Control  | Context Manager - The problem
+
 -----------------------------------------
+
+
 
 Intent and context describe the problem to the llm 
 
