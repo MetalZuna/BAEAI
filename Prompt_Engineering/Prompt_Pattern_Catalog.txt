@@ -667,9 +667,100 @@ H. System Prompting Patterns
             -- Risks
                 -- The system message may vary from user to user, which would makes the output
                 -- quality would still be affected by the user's ability to write a good BDP
+                -- May not be able to capture full context of the problem when it comes to 
+                    technical instructions
 
     3. Acceptance Criteria driven prompting
-        a. 
+        a. User Intent and description or full context of the problem (intent and context)
+            -- The goal here is to create a system prompt using Acceptance Criteria driven approach
+            -- Acceptance Criteria driven patten combines natural language structure with ACDP
+            -- ACDP structure is inspired from ATDD framework
+            -- One goal here is to improve upon natural language prompt patterns
+            -- Another goal here is to 
+
+        b. ACDP Pattern value (motivation)
+            -- It allows the language model to solve a problem by following a set of instructions
+            -- It allows the user to specify the output acceptance criteria to the llm
+
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- Given
+            -- When
+            -- Then
+            -- But
+            -- And
+            -- or 
+            -- not
+            -- else
+
+        d. example implementation
+            -- Given the system receives a user question
+            -- When the question is processed by the analysis module
+            -- Then The analysis module should identify the intent with an accuracy of at least 95%
+            -- And The response generation module should produce an answer within 2 seconds
+            -- And The generated answer must meet the predefined quality standards
+
+        e. Consequences
+            -- Benefits
+                -- It gives a framework to system to solve the problem.
+                -- It allows the user to mitigate the risks of natural language prompting pattern and BDP pattern
+                
+            -- Risks
+                -- The system message may vary from user to user, which would makes the output
+                -- quality would still be affected by the user's ability to write a good ACDP
+                -- May be too difficult for the user to write a good ACDP due to constraints
+
+    4. Integrated Prompting Pattern (IPP)
+        a. User Intent and description or full context of the problem (intent and context)
+            --The goal here is to create a system prompt using an integrated approach that combines BDP, ACDP, and natural language patterns.
+            -- IPP seeks to leverage the strengths of Natural Language Prompting, Behavior Driven Prompting, and Acceptance Criteria Driven Prompting.
+            -- It aims to provide a comprehensive solution that is adaptable to various user needs and contexts.
+            -- One key goal is to enhance the effectiveness of system prompts by integrating different methodologies.
+        
+        b. IPP Pattern value (motivation)
+            -- It allows the language model to solve a problem by combining behavioral insights, acceptance criteria, and natural language understanding.
+            -- It provides a flexible framework that can adapt to different types of problems and user requirements.
+            -- It seeks to improve the consistency and quality of system prompts by integrating proven prompting strategies.
+        
+        c. Structure and key ideas of the pattern (fundamental contextual statements)
+            -- It's important to mention the patterns that are being leveraged here.
+            -- Integration of NLP, BDP, and ACDP structures.
+            -- Utilization of natural language patterns to enhance user interaction.
+            -- Adaptation of elements from NLP, BDP, and ACDP as needed.
+            -- Potential introduction of new statements or modifiers to suit specific use cases.
+        
+        d. Example implementation
+            -- Scenario: Retrieving details of a historical event using Integrated Prompting Pattern
+            -- Given the user wants information about the Battle of Gettysburg
+            -- And the user expects a response within 5 seconds
+            -- And the user specifies that the information must include key dates, leaders, and outcomes
+            -- When the system receives the integrated prompt
+            -- Then the system should analyze the event's name and user's criteria
+            -- And the system must respond with accurate details about the Battle of Gettysburg
+            -- And the response must include key dates, leaders, and outcomes
+            -- And the response must be delivered within 5 seconds
+        
+        e. Consequences
+            -- Benefits
+                -- It provides a comprehensive framework to tackle complex problems.
+                -- It allows the user to specify in NLP, behavior, and acceptance criteria, enhancing the precision of the system response.
+                -- It leverages the strengths of existing patterns, potentially improving the reliability and robustness of system prompts.
+        
+            -- Risks
+                -- The complexity of integrating different patterns may increase the learning curve for users.
+                -- Balancing the elements of BDP, ACDP, and natural language may require careful consideration and design.
+                -- Ensuring the seamless integration of different methodologies may pose challenges in implementation.
+
+    5. Agile Prompting Pattern
+       
+                
+                 
+
+
+            
+
+
+
+        
         
 
 
