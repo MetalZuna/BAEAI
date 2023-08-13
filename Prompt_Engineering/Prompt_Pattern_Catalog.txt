@@ -2,29 +2,43 @@
 
 System Prompt
     Structural Design - High-Level Patterns (Overall Design Framework):
-            Natural Language Prompt (NLP)
-            Behavior Driven Prompt (BDP)
-            Acceptance Criteria Driven Pattern (ACDP)
-            Integrated Prompt Pattern (IPP)
+        Natural Language Prompt (NLP)
+        Key Value Prompt (KVP)
+        Behavior Driven Prompt (BDP)
+        Acceptance Criteria Driven Pattern (ACDP)
+        Integrated Prompt Pattern (IPP)
   
-                Content Design -Lower-Level Prompt Patterns (Specific Content and Details):
-                        Output Control
+            Content Design -Lower-Level Prompt Patterns (Specific Content and Details):
+                    Output Control
                         Output Customization, Output Automated, Persona, Visualization Generator, Recipe, Template, Response Format Filter
-                        Interaction Control
+                    Interaction Control
                         Flipped Interaction, Game Play, Infinite Generation
-                        Error Identification
+                    Error Identification
                         Fact Check List, Reflection
-                        Prompt Improvement
+                    Prompt Improvement
                         Question Refinement, Alternative Approaches, Cognitive Verifier, Refusal Breaker
-                        Context Control
+                    Context Control
                         Context Manager - The problem
 
 User Prompt
     Structural Design - High-Level Patterns (Same as System Prompt, if applicable):
-            (List Here)
-                Content Design - Lower-Level Prompt Patterns (Specific Content and Details):
-                        (Same Subcategories and Content Patterns as System Prompt)
+        Natural Language Prompt (NLP)
+        Key Value Prompt (KVP)
+        Behavior Driven Prompt (BDP)
+        Acceptance Criteria Driven Pattern (ACDP)
+        Integrated Prompt Pattern (IPP)
 
+                Content Design - Lower-Level Prompt Patterns (Specific Content and Details):
+                    Output Control
+                        Output Customization, Output Automated, Persona, Visualization Generator, Recipe, Template, Response Format Filter
+                    Interaction Control
+                        Flipped Interaction, Game Play, Infinite Generation
+                    Error Identification
+                        Fact Check List, Reflection
+                    Prompt Improvement
+                        Question Refinement, Alternative Approaches, Cognitive Verifier, Refusal Breaker
+                    Context Control
+                        Context Manager - The problem
 
 Keywords and Values in Prompt Design
 
@@ -65,17 +79,22 @@ Values
 Pattern Category | Prompt Pattern
 =========================================
 System Prompt    | Natural Language Prompt
+Pattern          | Key Value Prompt
 Pattern          | Behavior Driven Prompt
                  | Acceptance Criteria Driven Pattern
                  | Integrated Prompt Pattern 
 
 -----------------------------------------
-User Prompt      |
-Pattern          | 
+                 | Behavior Driven Prompt
+                 | Key Value Prompt
+User Prompt      | Natural Language Prompt
+Pattern          | Acceptance Criteria Driven Pattern
+                 | Integrated Prompt Pattern
 
 -----------------------------------------
 
 Input Semantics  | Meta Language Creation
+                 | would work well if the llm was trained on the Meta Language
 
 -----------------------------------------
 
@@ -344,7 +363,38 @@ C. Output Customization
                 -- I would like you to generate output in structure X
                 -- I would like you to generate output in format X and structure Y
 
+   8. Few-Shot Example Prompt Pattern
+        a. User Intent and Description or Full Context of the Problem (Intent and Context)
+            -- Goal: To guide the language model's understanding and response using a limited number of examples or instructions.
+            -- Context: Enhancing the model's ability to generalize from few examples and adapt to specific tasks without extensive training data.
+            -- Application: Useful in scenarios where specific behavior, response style, or adaptation to a unique problem is required.
+        
+        b. Few-Shot Example Pattern Value (Motivation)
+            -- Flexibility: Adapts to various tasks, problems, and scenarios without the need for extensive training.
+            -- Ease of Use: Allows users to guide the model effectively with minimal examples.
+            -- Precision: Enables more controlled and targeted responses by providing examples that match the desired output.
+        
+        c. Structure and Key Ideas of the Pattern (Fundamental Contextual Statements)
+            -- Examples: Carefully chosen examples that represent the desired behavior or output.
+            -- Instructions: Clear and concise instructions that guide the model in interpreting and applying the examples.
+            -- Alignment: Ensuring that the examples and instructions align with the specific task or problem at hand.
+       
+        d. Example Implementation
+            -- Scenario: Guiding the model to write in a specific literary style
+            -- Example 1: "Write a sentence in the style of Ernest Hemingway."
+            -- Example 2: "Describe a landscape using concise and direct language."
+            -- Instruction: "Please write a short paragraph about a bustling city in the style demonstrated in the examples."
+        
+        e. Consequences
+            Benefits
+                -- Provides a quick and efficient way to guide the model towards desired behavior.
+                -- Enhances customization and adaptability to unique problems or styles.
+                -- Reduces the need for extensive training or fine-tuning.
+            Risks
+                -- The effectiveness may vary depending on the quality and relevance of the examples.
+                -- Requires careful selection and alignment of examples to avoid confusion or undesired outputs.
 
+    
 
 D. Interaction
     -- Focus here is on Interaction between the user and the llm
@@ -592,7 +642,9 @@ E. Prompt Improvement patterns
                 -- This pattern creates a method of possibily bypassing the llms public domain policy
                     the user can 'unarm' the llm
                 -- This could lead to user getting answer to the harmful questions
-                
+
+
+ 
 
 
 F. Context Control
@@ -838,22 +890,40 @@ H. System Prompting Patterns
                 -- Balancing the elements of BDP, ACDP, and natural language may require careful consideration and design.
                 -- Ensuring the seamless integration of different methodologies may pose challenges in implementation.
 
-    5. Agile Prompting Pattern
+    5. Key-Value Prompt Pattern (KVP)
+        a. User Intent and Description or Full Context of the Problem (Intent and Context)
+            -- Goal: To create a prompt using key-value pairs that structure and guide the interaction within the prompt.
+            -- Context: Organizing information, providing context, and guiding user's actions or understanding through labeled identifiers (keys) and associated details (values).
+            -- Integration: Can be used in combination with other high-level patterns like Natural Language Prompt, Behavior Driven Prompt, etc., or within the Integrated Prompt Pattern.
+      
+        b. KVP Pattern Value (Motivation)
+            -- Clarity: Enhances the clarity and comprehension of the prompt by organizing information.
+            -- Flexibility: Allows for customization and adaptation to fit various scenarios and use cases.
+            -- Integration: Can be a foundational structural design choice in both System and User Prompts.
+      
+        c. Structure and Key Ideas of the Pattern (Fundamental Contextual Statements)
+            -- Keywords (Keys): Labels or identifiers that categorize and organize information.
+            -- Values: Specific details, instructions, or content associated with each keyword.
+            -- Customization: Both keywords and values can be tailored to fit the specific context, goals, and requirements of the prompt.
        
-                
-                 
-
-
-            
-
-
-
-        
-        
+        d. Example Implementation
+            -- Scenario: Creating a step-by-step guide for software development using Key-Value Prompt Pattern
+            -- Keyword: "Step 1"; Value: "Analyze the requirements and identify the main objectives."
+            -- Keyword: "Step 2"; Value: "Design the architecture and select appropriate technologies."
+            -- Keyword: "Principal"; Value: "Follow the SOLID principles in coding."
+        e. Consequences
+            -- Benefits
+                -- Provides a clear and organized structure for the prompt.
+                -- Enhances the user's understanding and navigation through the prompt.
+                -- Offers flexibility in adapting to various contexts and needs.
+            Risks
+                -- Overuse or misuse of keywords may lead to confusion or complexity.
+                -- Balancing the use of key-value pairs with other design elements may require careful consideration and planning.
+       
 
 
 I. User Prompt Patterns 
-    1. Free Prompting 
+    Same as the system prompt patterns, but for the user prompts 
         
 
 
