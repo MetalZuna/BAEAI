@@ -604,9 +604,78 @@ G. Error Identification
 
 
 
+H. System Prompting Patterns 
+    1. Natural Language Prompting 
+        a. User Intent and description or full context of the problem (intent and context)
+            -- The goal here is to create a system prompt using natural language
+
+        b. NLP Pattern value (motivation)
+            -- It allows the language model to solve a problem by following a set of instructions
+
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- System message can be written in natural language
+
+        d. example implementation
+            -- “I want you act as a Indian food expert, I will give you a list of ingredients and you will tell me what dish can be made from those ingredients”
+                I want to return a list of dishes that can be made from a list of ingredients.
+                make sure that the list of dishes is sorted by the number of ingredients required to make the dish"             
+
+        e. Consequences
+            -- Benefits
+                -- It gives a framework to system to solve the problem.
+            
+            -- Risks
+                -- The system message may vary from user to user, which would makes the output 
+                quality less consistent and less predictable.
+                -- natural language structured system message may be too long and complex for the llm to understand
+                and it may produce less desirable output
 
 
-    
+    2. Behavior Driven Prompting
+        a. User Intent and description or full context of the problem (intent and context)
+            -- The goal here is to create a system prompt using behavior driven approach
+            -- Behavior driven combines natural language structure with BDP structure 
+            -- BDP structure is inspired from the BDD framework
+            -- Another goal here is to improve upon the natural language prompting pattern
+
+        b. BDP Pattern value (motivation)
+            -- It allows the language model to solve a problem by following a set of instructions
+            -- It allows the user to specify the desired behavior of the llm
+        
+        c. structure and key ideas of the pattern (fundamental contextual statements)
+            -- Given
+            -- When
+            -- Then
+            -- But
+            -- And
+            -- or 
+            -- not
+            -- else
+
+        d. example implementation
+            -- Given the user is asking you a question
+            -- when you receive the question
+            -- then analyze the question
+            -- and identify the intent and problem context
+            -- and generate an answer
+
+        e. Consequences
+            -- Benefits
+                -- It gives a framework to system to solve the problem.
+                -- It allows the user to mitigate the risks of natural language prompting pattern
+
+            -- Risks
+                -- The system message may vary from user to user, which would makes the output
+                -- quality would still be affected by the user's ability to write a good BDP
+
+    3. Acceptance Criteria driven prompting
+        a. 
+        
+
+
+I. User Prompt Patterns 
+    1. Free Prompting 
+        
 
 
  
