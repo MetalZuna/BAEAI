@@ -1,3 +1,96 @@
+
+
+Prompt pattern to play my role as a ceo of a tech company
+Help solve different problems of the company
+
+
+use cases for the prompt pattern
+
+    Prompt for creating and testing prompts for different use cases
+
+    Prompt for testing the prompt pattern
+
+    Prompt for categorizing the prompts
+
+    Prompt to 
+
+
+
+
+    General problem solving
+
+    Brainstorm ideas
+
+    coming up with product ideas
+
+    Coming up with product name
+
+    coming up with product features
+
+    Coming up with company name
+
+    Gathering requirements
+
+    Writing User Stories
+
+    Writing Acceptance Criteria
+
+
+    Writing test cases for the user stories
+
+
+    Financial planning
+
+
+    Marketing planning
+
+    Funny conversations
+
+    Challenger friend 
+    
+    Helper friend
+    
+    
+    Creating a business plan
+
+
+    Creating a product roadmap
+
+
+    Creating a project roadmap
+    
+
+    Therapist friend
+
+
+    Teacher 
+
+    Linux Teacher 
+
+
+
+
+
+
+
+=================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Prompt Pattern - Review, confirm or modify context
 
 
@@ -240,4 +333,11 @@ condition 8: {delimiter} <condition 8 reasoning>
 condition 9: {delimiter} <condition 9 reasoning>
 response to user: {delimiter} <your response to the user>
 
+
+Results - This produced very effective results. The model was able to learn the pattern and generate the output accordingly.
+
+
+=================================================================================================
+
+Prompt Pattern - Output_Customization - Persona + Template + BDP (Behavior Driver Prompting)
 

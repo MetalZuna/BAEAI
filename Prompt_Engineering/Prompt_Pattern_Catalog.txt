@@ -82,7 +82,8 @@ System Prompt    | Natural Language Prompt
 Pattern          | Key Value Prompt
 Pattern          | Behavior Driven Prompt
                  | Acceptance Criteria Driven Pattern
-                 | Integrated Prompt Pattern 
+                 | Integrated Prompt Pattern
+                 |
 
 -----------------------------------------
                  | Behavior Driven Prompt
@@ -99,8 +100,8 @@ Input Semantics  | Meta Language Creation
 -----------------------------------------
 
 Output Manager   | Output Automated
-(Customization)  | Persona Manager x 
-                 | The Challenger x
+(Customization)  | Persona
+                 | 
                  | Visualization Generator
                  | Recipe
                  | Template
@@ -111,7 +112,7 @@ Output Manager   | Output Automated
 Interaction      | Flipped Interaction
                  | Game Play
                  | Infinite Generation
-                 | The Challenger Pattern             
+                 |              
 
 -----------------------------------------
 
@@ -128,40 +129,142 @@ Improvement      | Alternative Approaches
 
 -----------------------------------------
 
-Context Control  | Context Manager - The problem
+Context Control  | Context Manager 
 
 -----------------------------------------
 Display Manager  | Display Manager
                  | 
 
------------------------------------------
 
-    Problem Manager
+=========================================
+Restructured Prompt pattern framework
+
+
+
+System Prompt 
+
+
+Main Task Manager 
+
+    Manage Problem 
+
         Identifying the problem
-        Help user identify the problem
+        Help user identify the problem - ask questions
+            Recipe Pattern
         Help user take Alternative Approach  
         Cognitive Verifier
         Refusal Breaker
 
-    -----------------------------------------
+    Manage Persona
 
-    Persona Manager
         Roles
         Flipped Interaction 
         The Challenger
         Critic
         Tone 
------------------------------------------
 
-    Solution Manager
+    Manage Solution
+
+        A
+        Solution Template
         Game Play 
-        Alternative Approach 
-    -----------------------------------------
+        Alternative Approach
+        Infinite Generation
 
-    Display Manager
+
+    Manage Quality
+
+        Solution Verifier
+        Error Handling
+        Fact Check List
+        Reflection 
+        Value Analyzer
+            Long term
+            Short term
+        Impact Analyzer 
+            Long term
+            Short term
+
+    Manage Display or Display style or Display Specs
+
         Display language format
         Display language style
+        Set display language format
+        Determine display language style
 
+
+========================================= 
+
+
+Higher Prompt Framework or Prompt Frame or prompt foundation or first layer of prompt
+First tasks of creating a prompt is to select prompt foundation.
+You may select one or more Prompt blocks for laying the foundations to create a prompt.
+
+So to make your first decision to write a prompt is to select the 
+foundational building blocks of the prompt.
+How are you going to structure the prompt?
+
+What technique are you going to use to structure the prompt?
+Here we are declaring how are we going to prompt. 
+we are declaring prompt style. 
+we are deciding how we'll structure the prompt 
+
+How do we create this prompt? How we strucutre the content of the prompt?
+
+So how we structure the content of the prompt is the first decision we make
+when we create a prompt.
+
+so we'll use a foundational block to structure the content of the prompt.
+
+
+Automated Output | 
+System Prompt    | Natural Language Prompt
+Pattern          | Key Value Prompt
+Pattern          | Behavior Driven Prompt
+                 | Acceptance Criteria Driven Pattern
+                 | Integrated Prompt Pattern 
+                 | X Template Pattern
+                 | Few Shot Example Prompt Pattern
+
+
+
+Lower level prompting is focused on the content of the prompt
+The content of the prompt is the information that is provided to the llm.
+Here the idea is what to provide to the llm to get the desired output.
+Here the structural design will guide us to how to form the content of the prompt.
+
+
+
+
+
+
+Main Task Manager
+
+    Define Problem
+        Identify the problem
+        Assist user in identifying the problem
+        Guide user through alternative approaches
+        Verify understanding (Cognitive Verifier)
+        Overcome refusals (Refusal Breaker)
+        Create Persona
+
+    Define roles
+        Engage in flipped interaction
+        Challenge assumptions (The Challenger)
+        Critique solutions (Critic)
+        Set tone
+
+    Develop Solution
+        Engage in game play
+        Explore alternative approaches
+
+    Ensure Quality
+        Compile a fact-check list
+        Reflect on solutions
+
+    Configure Display
+        Set display language format
+        Determine display language style
 
 
 
