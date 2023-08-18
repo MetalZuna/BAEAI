@@ -83,7 +83,7 @@ Pattern          | Key Value Prompt
 Pattern          | Behavior Driven Prompt
                  | Acceptance Criteria Driven Pattern
                  | Integrated Prompt Pattern
-                 |
+                 | Step by Step Prompt Pattern
 
 -----------------------------------------
                  | Behavior Driven Prompt
@@ -149,11 +149,13 @@ Main Task Manager
     Manage Problem 
 
         Identifying the problem
-        Help user identify the problem - ask questions
-            Recipe Pattern
-        Help user take Alternative Approach  
-        Cognitive Verifier
+            Help user identify the problem and or set goals- ask questions
+                Recipe Pattern
+        Help user take Alternative Approach to solve the problem or achieve the goal
+            Alternative Approach Pattern  
+        Cognitive Verifier 
         Refusal Breaker
+        Goal or Value  evaluation
 
     Manage Persona
 
@@ -165,7 +167,6 @@ Main Task Manager
 
     Manage Solution
 
-        A
         Solution Template
         Game Play 
         Alternative Approach
@@ -225,6 +226,7 @@ Pattern          | Behavior Driven Prompt
                  | Integrated Prompt Pattern 
                  | X Template Pattern
                  | Few Shot Example Prompt Pattern
+                 | Step method 
 
 
 
@@ -242,13 +244,14 @@ Main Task Manager
 
     Define Problem
         Identify the problem
-        Assist user in identifying the problem
+            Ask questions
+            Assist user in identifying the problem
         Guide user through alternative approaches
         Verify understanding (Cognitive Verifier)
         Overcome refusals (Refusal Breaker)
-        Create Persona
 
     Define roles
+        Create Persona
         Engage in flipped interaction
         Challenge assumptions (The Challenger)
         Critique solutions (Critic)

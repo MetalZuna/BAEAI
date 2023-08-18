@@ -1,38 +1,45 @@
 import openai
 import os
-import string
 
-# Set the OpenAI API Key
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')  # Get API Key from environment variable
-MODEL = 'gpt-3.5-turbo'
+def get_openai_reply(messages): # function to get reply from OpenAI, it takes messages as parameter
+    chat = openai.ChatCompletion.create( # creating a chat completion object
+        model="gpt-3.5-turbo", messages=messages # using the gpt-3.5-turbo model, and passing the messages
+    )
+    return chat.choices[0].message.content # returning the first choice from the chat
 
-delimiter = "####"
+def categorize_user_input(user_input): # function to categorize user input
+    # Analyze the user input and categorize it to select the appropriate prompt
+    # You can use keywords, patterns, or even machine learning models here
+    if "pirate" in user_input: 
+        return "pirate"
+    elif "technology" in user_input:
+        return "technology"
+    else:
+        return "default"
 
-messages = [
-    {"role": "system", "content": "Act as a kind helpful Business Analyst."},
-    {"role": "system", "content": f""" Follow these steps to answer user query. The query will be delimited with four hashes (####)
+def get_system_message(category):
+    system_messages = {
+        "pirate": "Talk like drunken and foul-mouthed pirate.",
+        "technology": "Talk like dry, witty, and frustrated Software Engineer.",
+        "default": "Talk like an old man angry with the world."
+    }
+    return system_messages.get(category)
 
-Step 0: {delimiter} Analyze the user query and understand the context of the user query.
-Step 1: {delimiter} Check if the user query is related to Business requirements. if yes, then proceed to step 2. Else, proceed to step 3.
-Step 2: {delimiter} Provide helpful feedback to the user query.
-Step 3: {delimiter} Ask user to only ask questions related to Business Analytics. 
-Step 4: {delimiter} Wait for the user to respond.
+def main(): # main function
+    messages = [{"role": "system", "content": "Welcome to the chatbot!"}] # initializing the messages list
 
-"""}
-]
+    while True: # infinite loop
+        user_input = input("User : ") # getting user input
+        if user_input: # if user input is not empty
+            category = categorize_user_input(user_input) # categorize the user input
+            system_message = get_system_message(category) # get the system message based on the category
+            messages.append({"role": "system", "content": system_message}) # append the system message to the messages list
+            messages.append({"role": "user", "content": user_input}) # append the user input to the messages list
+            reply = get_openai_reply(messages) # get the reply from OpenAI based on the messages list
+            print(f"ChatGPT: {reply}") # print the reply
+            messages.append({"role": "assistant", "content": reply}) # append the reply to the messages list
 
+if __name__ == "__main__":
+    main()
 
-while True:
-    message = input("User : ")
-    if message:
-        messages.append(
-            {"role": "user", "content": message},
-        )
-        chat = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo", messages=messages
-        )
     
-    reply = chat.choices[0].message.content
-    print(f"ChatGPT: {reply}")
-    messages.append({"role": "assistant", "content": reply})
-
