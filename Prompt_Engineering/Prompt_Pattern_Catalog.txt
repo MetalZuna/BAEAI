@@ -1,4 +1,4 @@
-
+Tutor LLM Prompt Pattern Framework
 
 System Prompt
     Structural Design - High-Level Patterns (Overall Design Framework):
@@ -18,7 +18,7 @@ System Prompt
                     Prompt Improvement
                         Question Refinement, Alternative Approaches, Cognitive Verifier, Refusal Breaker
                     Context Control
-                        Context Manager - The problem
+                        Context Manager - Context Manager 
 
 User Prompt
     Structural Design - High-Level Patterns (Same as System Prompt, if applicable):
