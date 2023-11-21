@@ -1,5 +1,5 @@
 ## Table of Contents
-- [General Introduction](/Snap_AI_Prompt_Framework_E-Book/General_Introduction.md)
+- [General Introduction](/article/general_introduction)
 - [Conceptual Foundations](#2-conceptual-foundations)
 - [Prompt Design Principles](#3-prompt-design-principles)
 - [Main Request Manager](#4-main-request-manager)
