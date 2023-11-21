@@ -1,2 +1,0 @@
-- [x] Completed Task
-- [ ] Incomplete Task
