@@ -1,10 +1,2 @@
-## Table of Contents
-- [General Introduction](/article/general_introduction)
-- [Conceptual Foundations](#2-conceptual-foundations)
-- [Prompt Design Principles](#3-prompt-design-principles)
-- [Main Request Manager](#4-main-request-manager)
-- [Snap AI Prompt Framework](#5-snap-ai-prompt-framework---a-flexible-blueprint-for-ai-prompting)
-- [Snap AI Prompt Framework - A closer look](#6-snap-ai-prompt-framework---a-closer-look-at-the-building-blocks)
-- [Summary](#7-summary)
-- [Prompt Library](#8-prompt-library)
-- [About the Author](#9-about-the-author)
+# Concepts
+- [Concepts](#concepts)
