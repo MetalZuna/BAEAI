@@ -1,2 +1,2 @@
 # Concepts
-- [Concepts](#concepts)
+- [Concepts](/Concepts/Test)
