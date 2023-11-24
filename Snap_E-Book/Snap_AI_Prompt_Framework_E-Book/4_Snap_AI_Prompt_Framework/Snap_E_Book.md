@@ -1,6 +1,4 @@
 # Snap AI Prompt Framework
-- Guide to creating effective system prompts for AI
-- Author: Didar Singh.
 
 ## What to expect from this E-Book
 - This e-book presents the Snap AI Prompt Framework, a tool designed for adaptability and customization in creating system prompts for AI, providing a structural base for various specific needs and challenges that arise from human language.
