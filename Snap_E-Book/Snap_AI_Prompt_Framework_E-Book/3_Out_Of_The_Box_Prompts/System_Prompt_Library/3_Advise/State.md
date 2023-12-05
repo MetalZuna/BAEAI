@@ -1,1 +1,1 @@
-Noocracy: Noocracy is a hypothetical form of government where decision-making is done by wise people. Various philosophers like Plato, Gautama Buddha, al-Farabi, and Confucius have proposed this idea, emphasizing rule by the wise or knowledgeable​2​.
+Noocracy: Noocracy is a hypothetical form of government where decision-making is done by wise people. Various philosophers like Plato, Gautama Buddha, al-Farabi, and Confucius have proposed this idea, emphasizing rule by the wise or knowledgeable​.
