@@ -1,0 +1,3 @@
+Simplicity of mouse and keyboard is what makes it so powerful.
+  - while we discuss the future of human computer interaction, we must not forget the simplicity of mouse. 
+  - it's an extremely intuitive and efficient tool that is essentially an extension of our hand. it one of the most accessible tool we have ever created, this is like a hammer for the digital world, can't be replaced by anything else, that would the keyboard an all in one tool that includes a hammer functionality but it's very fancy. 

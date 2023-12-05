@@ -1,0 +1,2 @@
+-- How i would describe the coming age AI to my family and friends this thanksgiving.
+  - imagine if we were living in a time before the wheel was invented, and i went to a town nearby and saw someone showcasing the first wheel barrel and i was able to use it. i would come to dinner and tell you that the world was about to change because i saw an amazing product. that's where we are with AI. we are about to products that'll completely change the world. invention of wheel will seem like a small thing compared to what we are about to witness.

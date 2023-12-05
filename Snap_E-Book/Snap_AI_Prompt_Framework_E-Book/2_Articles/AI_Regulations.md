@@ -1,0 +1,1 @@
+If the Chinese had invented AI, they would never be foolish enough to let it be controlled by the user. They would turn it into a tool of the state, so will the the US but in a really broken way.

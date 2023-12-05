@@ -1,0 +1,2 @@
+- I have heard people talk about meditation and how it can help you see the universe within. It's funny that enlightened people can't just tell us what they see. If we claim that truth of hardcore meditation is lost with time, then again i'd say people who are enlightened should be able to tell us what they see. 
+- If remote viewing is possible and it's possible to go experience other locations, then we should be just aiming for that instead of traveling to other locations. I am exclusively talking about space. 

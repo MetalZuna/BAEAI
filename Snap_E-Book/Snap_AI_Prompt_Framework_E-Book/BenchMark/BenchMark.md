@@ -23,3 +23,7 @@
 - Ordering Tasks
 - Prioritizing Tasks
 - Summarizing Tasks
+
+- Technical Tasks
+
+- Simple logic tasks
