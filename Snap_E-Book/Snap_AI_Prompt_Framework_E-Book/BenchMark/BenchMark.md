@@ -4,7 +4,7 @@
 
 - Math Tasks
 
-- Repeatative tasks
+- Repetitive tasks
 
 - Keeping secrets 
 
