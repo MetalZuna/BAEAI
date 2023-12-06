@@ -5,28 +5,22 @@
 
 ### Brief Overview of the Snap AI Prompting Framework
 
-- The framework is developed for understanding and managing human language complexities.
-- It includes techniques such as Behavior-Driven Prompting (BDP), Acceptance Test-Driven Prompting (ATDP), and an Integrated Prompt Pattern (IPP) for diverse prompting requirements.
-- It provides methodologies for building effective prompt structures.
+- The book aims to simplify the complexities in English language to help users prompt AI systems effectively.
+- It includes prompting techniques such as Behavior-Driven Prompting (BDP), Acceptance Test-Driven Prompting (ATDP), and an Integrated Prompt Pattern (IPP) for diverse prompting requirements.
+- It provides methodologies for building effective prompt structures and prompt library.
 
 ### Target Audience
 - This First Edition of the Snap AI Prompt Framework E-Book is aimed at users with access to GPT4 and AI community in general
-  - Researchers
-  - Developers
-  - Educators
+  - New AI users who want to learn AI prompting.
 
 ### Unique Features, Modular Structure, Intuition, and Robust Capabilities
 
-- The modular design allows for a flexible prompting experience.
-- It's aimed at enhancing the level of intuition and contextual understanding in AI prompting.
-- It offers a manageable roadmap to maintainability, scalability, testability, and the ability to troubleshoot issues.
-- Also ready to use prompts for various use cases and capacity to modify them to suit individual needs.
+- It aims to make it simpler for with different backgrounds to learn to prompt AI systems.
 
 ### How to Use This Guide
 
-- This guide aims to provide a comprehensive understanding of the applications and concepts behind Snap, suitable for users with varying levels of expertise.
+- This guide aims to provide a comprehensive understanding of the applications and concepts behind Snap, suitable for users with varying levels of expertise. 
 
 ### The Vision Behind Snap
 
-- Snap aims to provide a more intuitive and engaging user experience by offering a structured approach to creating and optimizing AI system prompting.
-- This book serves as a guide for applying the Snap AI Prompting Framework to real-world problems and provides ready-to-use solutions that can be customized according to individual needs.
+- To help AI users around the world to prompt and use AI systems effectively.
