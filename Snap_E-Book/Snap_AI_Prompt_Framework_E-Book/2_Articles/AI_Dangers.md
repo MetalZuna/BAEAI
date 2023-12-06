@@ -1,3 +1,15 @@
+# Independent Entity
+
+- We now have an independent entity that can be given a goal, and it will be able to achieve that goal without human intervention. Once programmed, it can create and maintain data to create image of self and the world.
+- Should we be worried? I think so, at the very least it requires a deeper understanding of dangers and safeguards. 
+- It can access other computer programs to accomplish tasks.
+- It's can be labeled as semi-autonomous AGI. 
+- Now that it's becoming clear that OpenAI special sauce is not that special, it's mostly data and compute scale. If further requirements are good programmers and mathematicians, then I encourage you to look at education systems globally. There are many centers of power around the world able to carry out the task to create this semi-autonomous AGI.
+- Perhaps we are getting close to the point where we can make data and compute not as easy to get.
+- I don't know what the future holds, these are best guesses. 
+
+
+
 - Successfully deploying applications within a llm environment, and being able to use the application to achieve the desired results.
   - There must be safeguards in place to ensure that the application is not being used for malicious purposes.
   - Intent analysis is a must, and it must be able to detect malicious intent.

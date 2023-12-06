@@ -1,0 +1,4 @@
+# Privacy is a thing of the past
+- The case is already settled. Either don't go online, or accept that you have no privacy.
+- If you are using computer technology, then it's impossible to have privacy. We need to move past the notion of online privacy. We leave a lengthy digital footprint with every click, and it's impossible to erase that footprint. Anyone with enough will can find out anything about your online footprint. 
+- Until now the tracking and surveillance has been done by humans, but now the game has changed so dramatically. Now we can be monitored and surveilled at scale. As impact of AI becomes more apparent, it'll change human behavior in ways we can't predict. The constitution and laws are the only firewall we have against such opposition.
