@@ -1,0 +1,1 @@
+This will cause a lot of outrage. The solution to the .... problem is to force them to move to a new land. Someone will have to organize it; purchasing land, establishing housing, work, and social services.
