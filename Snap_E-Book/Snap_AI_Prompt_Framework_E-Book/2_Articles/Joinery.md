@@ -1,2 +1,0 @@
-Joinery is all you need. The concept of joining elements or parts of a element together is the most important concept in the universe. Stitching together elements to balance the forces to create new things is not unique to humans but we are just about the best at it. 
-Words are joined together to create ideas, wood and metal are joined together to create structures to seal out unwanted elements. Your ability to join elements together would determine the integrity of the structure. Surgeons join elements together to heal the body. 

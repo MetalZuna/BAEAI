@@ -27,3 +27,4 @@
 - Technical Tasks
 
 - Simple logic tasks
+- Same tasks and same prompts with multiple chats and compare the results
