@@ -1,0 +1,1 @@
+AI models can generate text, and they can be trained on audio/video content created over 120 years. Audio and video content dominates reading and writing. 
