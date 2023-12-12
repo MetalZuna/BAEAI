@@ -1,7 +1,7 @@
 ## 1. General Introduction
 
 ### Language is like water
-- Much like water, language can take many forms. Water adapts to the container it is in. The Snap AI Prompting Framework aims to provide structure to fluid dynamics of human language.
+- Much like water, language can take many forms. Which makes it difficult to model for AI systems.
 
 ### Brief Overview of the Snap AI Prompting Framework
 
@@ -10,17 +10,18 @@
 - It provides methodologies for building effective prompt structures and prompt library.
 
 ### Target Audience
-- This First Edition of the Snap AI Prompt Framework E-Book is aimed at users with access to GPT4 and AI community in general
-  - New AI users who want to learn AI prompting.
+- This Second Edition of the Snap AI Prompt Framework E-Book is aimed at users with beginner to intermediate levels of expertise in AI prompting.
 
 ### Unique Features, Modular Structure, Intuition, and Robust Capabilities
 
-- It aims to make it simpler for with different backgrounds to learn to prompt AI systems.
+- It aims to make it simpler for users with different backgrounds to learn to prompt AI systems.
+  - Non-Technical Users
+  - ESL Users
 
 ### How to Use This Guide
 
-- This guide aims to provide a comprehensive understanding of the applications and concepts behind Snap, suitable for users with varying levels of expertise. 
+- This guide aims to provide a comprehensive understanding of the applications and concepts behind Snap Framework. 
 
 ### The Vision Behind Snap
 
-- To help AI users around the world to prompt and use AI systems effectively.
+- To help AI users around the world to prompt AI systems effectively.

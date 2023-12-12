@@ -1,21 +1,19 @@
 ## 4. Main Request Manager
 
 ### Create Customize Request Manager to Handle User Requests
-- Now that you are familiar with "higher level" concept blocks, let's take a look at the "Main Task Manager" concept block.  Main Task manager is tasked with handling and processing the user requests. 
-- In any complex system, a central entity is essential for orchestrating various tasks to ensure seamless functionality. In the Snap AI Prompting Framework, "Main Task Manager" fills this crucial role. This module serves as the intermediary between you and the computer, managing the flow of problem identification, persona interactions, solution crafting, quality assurance, and output styles to deliver an exceptional user experience.
+- Now that you are familiar with "higher level" concept blocks, let's take a look at the "Main Request Manager".  Main request manager is tasked with handling and processing the user requests. 
+- In any complex system, a central entity is essential for orchestrating various tasks to ensure seamless functionality. In the Snap AI Prompting Framework, "Main Request Manager" fills this crucial role. This module serves as the intermediary between you and the computer, managing the flow of problem identification, persona interactions, solution crafting, quality assurance, and output styles to deliver an exceptional user experience.
 
-### Two paths of operation for Main Task Manager
+### Two paths of operation for Main Request Manager
 
 #### Directed Pathway
 
 - Here the Main Task Manager is transformed to a Persona from the start.
 - For example:
-  - It could simply remain as a request manager for the user.
-- Or
-  - Instead of Act as a request manager for the user, it would be Act as a Business Analyst for the user.
-- Or
-  - Instead of Act as a request manager for the user, it would be Act as a Software Engineer for the user. 
-- Imagine if you were keen on planning a business venture. You already know you need the counsel of a Business Analyst, so you activate that persona upfront. This is the essence of the Directed Pathway. You dictate the AI's persona right from the onset, essentially "directing" the course of the conversation based on preselected expertise. Here, you'll begin with your chosen persona and proceed to present the tasks for the AI to accomplish, maintaining the context and precision of the selected persona.
+  - It could simply remain as a request manager for the user. 
+    - Act as persona x for the user
+   
+- Imagine if you were keen on planning a business venture. You already know that you need the counsel of a Business Analyst, so you activate that persona upfront. This is the essence of the Directed Pathway. You dictate the AI's persona right from the onset, essentially "directing" the course of the conversation based on preselected expertise.
 
 #### Adaptive Pathway
 

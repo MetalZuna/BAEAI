@@ -4,20 +4,19 @@
 - This section of the e-book introduces the foundational concepts integral to the Snap AI Prompting Framework. Detailed articles provide an exploration of various aspects of AI prompting, language modeling, and natural language interfaces.
 
 ### Natural Language as a Programming Language
-  
-- Natural language interfaces connect traditional language users to computational domains. These interfaces are making computational tasks more accessible, as users can now employ everyday language.
+
+- AI language models have the potential to revolutionize the way we interact with technology. They can serve as a bridge between human language and computer code, enabling users to communicate with technology in a more natural and intuitive way.
 
 #### Main Request/Task Manager Paradigm
 
-- Imagine a Request Manager that is tailored for the user, sitting between you and the language model to help process user requests. The Task Manager, acting as an interpreter that compartmentalizes user request to get the most satisfying response from the language model. It's like having a project manager who speaks both 'Human' and 'Computer, coordinating the effort to achieve your goals. This task manager can be any persona you want. It can be your best friend, your personal assistant, or a famous persona or simply a request manager.
-- Both are examples of Main Request Manager
+- Imagine a Request Manager that is tailored for the you, sitting between you and the language model to help process requests. The Task Manager, acting as an interpreter that routes the user request to get the most satisfying response from the language model. This task manager can be any persona you want.
   - Act as request manager for the user
 - Or 
   - Act as persona x
 
 #### The Future: An Evolving Interface
 
-- As language models continue to evolve, the sophistication of this "natural language programming" will grow. The Task Manager, too, will become more advanced, understanding increasingly complex requests and translating them into actionable tasks.
+- As language models continue to evolve, the reach of "natural language programming" will grow.
 
 #### Why This Matters
 
