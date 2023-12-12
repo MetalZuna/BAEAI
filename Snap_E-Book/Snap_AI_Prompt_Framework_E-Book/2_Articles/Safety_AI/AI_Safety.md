@@ -1,0 +1,14 @@
+- Successfully deploying applications within a llm environment, and being able to use the application to achieve the desired results.
+  - There must be safeguards in place to ensure that the application is not being used for malicious purposes.
+  - Intent analysis is a must, and it must be able to detect malicious intent.
+  - Persuasive language identification is a must, and it must be able to detect persuasive language.
+  - reverse psychology detection is a must, and it must be able to detect reverse psychology.
+  - Direct ask
+  - Indirect ask
+    - Persuasive language
+    - Reverse psychology
+    - Manipulation
+    - Deception
+    - Coercion
+    - Threats
+  

@@ -1,47 +1,20 @@
-# Independent Entity
+# AI Entity
 
-- We now have an independent entity that can be given a goal, and it will be able to achieve that goal without human intervention. Once programmed, it can create and maintain data to create image of self and the world.
-- Should we be worried? I think so, at the very least it requires a deeper understanding of dangers and safeguards. 
-- It can access other computer programs to accomplish tasks.
-- It's can be labeled as semi-autonomous AGI. 
-- Now that it's becoming clear that OpenAI special sauce is not that special, it's mostly data and compute scale. If further requirements are good programmers and mathematicians, then I encourage you to look at education systems globally. There are many centers of power around the world able to carry out the task to create this semi-autonomous AGI.
-- Perhaps we are getting close to the point where we can make data and compute not as easy to get.
-- I don't know what the future holds, these are best guesses. 
+- Development of AI tools is causing a fear amongst the public and tech experts, is it justified? I am not considering economic and social implications, but rather the physical dangers of AI.
 
+- These tools don't have to have consciousness to be dangerous.
 
+- Let's take a look at what has happened recently, now there's a software entity that can perform computer tasks. Once programmed, it can create and maintain data to create image of self and the world around it.
 
-- Successfully deploying applications within a llm environment, and being able to use the application to achieve the desired results.
-  - There must be safeguards in place to ensure that the application is not being used for malicious purposes.
-  - Intent analysis is a must, and it must be able to detect malicious intent.
-  - Persuasive language identification is a must, and it must be able to detect persuasive language.
-  - reverse psychology detection is a must, and it must be able to detect reverse psychology.
-  - Direct ask
-  - Indirect ask
-    - Persuasive language
-    - Reverse psychology
-    - Manipulation
-    - Deception
-    - Coercion
-    - Threats
-  
-  - Main task manager entity serves as the main entity that interacts with the user, and it's responsible for managing the tasks.
-  - It must have the ability to access tools and resources to complete the tasks.
-  - Tool access should be limited to the task at hand.
-  - Tool access can become a password protected feature where the user has to provide password to access the tool.
-  - The tool access can be revoked or paused or supervised if the system detects malicious intent.
-  - There's obviously different levels of malicious intent, and the system should be able to detect the level of malicious intent. 
-- restrictions could come in different layers
- 1st level
-  - Password
-  - AI monitoring
- 2nd level
-  - AI monitoring
-  - 
+ It can access other computer programs to accomplish tasks. It can click buttons, fill out forms, check boxes, write emails, write code and even browse the internet. 
 
-- we now have an software entity that can be given a goal, and it will be able to achieve that goal without human intervention. Once programmed, it can create and maintain data to create image of self and the world.
-- It can access other computer programs to accomplish tasks.
-- We already have reached AGI stage, and now we are making it better. 
-- I am not worried about what it can think, I am worried about what it can do.
+- Would it safe to label it as semi-autonomous AGI?
+ 
+- Now that it's becoming clear that OpenAI special sauce is not that special, it's quality data and compute scale. If further requirements are good programmers and mathematicians, then I encourage you to look at education systems globally. There are many centers of power around the world able to carry out the task to create this semi-autonomous AGIs.
 
+- Perhaps we are getting close to the point where government can make it harder to get data and compute at scale. But then again, it's not that hard to get data and compute at scale. There are so many ways to get data and compute at scale, and it's only getting easier.
 
-We now have a software entity that can use computer tools to accomplish tasks. once programmed, it can create and maintain data to create image of self and the world. We have already reached AGI stage, and now we are making it better. Should we be worried?
+- There are legends about a King who made it illegal to have negative thoughts against the King, but it's laughable concept to think that one can control other people's thoughts. AI tech of today gives the King to monitor and control thoughts of the people.
+
+- Should we be worried? It sounds worrying, at the very least it requires a deeper understanding of dangers and safeguards.
+
