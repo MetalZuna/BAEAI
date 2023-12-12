@@ -1,6 +1,6 @@
 # How To Use The E-Book
 
-## Entry Points
+## Starting Points
 - There are two entry points to the E-Book
   
 - Out of the box system prompts
