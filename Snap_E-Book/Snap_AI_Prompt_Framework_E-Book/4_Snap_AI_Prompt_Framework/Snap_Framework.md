@@ -25,10 +25,11 @@
 - - **Evaluate Resources**: Asking AI to help user evaluate resources.
     - **Complete Your Concepts**: Asking AI to help user with partial and or resource description.
 
-- **Explore Alternatives**: 
-    - Asking AI to solve Alternative problems or identify prerequisites.
-    - Asking AI to provide Alternative goals.
+- **Explore Alternatives Tasks**: 
+    - Asking AI to explore Alternative tasks that can be done instead of what the user is proposing to solve the problem or achieve goals.
+    - Asking AI to explore Alternative goals instead of original goal.
     - Asking AI to Help prioritize problems and goals.
+    - Asking AI to identify pre-requisites for the task.
 - **Assess Impact**: Asking Ai to help evaluate the impact of the tasks and goals.
     - Long-term
     - Short-term
