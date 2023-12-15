@@ -45,9 +45,8 @@
 - **Quick Results**: Using few-shot learning for rapid problem-solving.
 - **Play a Game**: Introduce game elements in solutions for fun way to interact with AI.
 - **Alternative Approach**: Consider alternative ways to solve a problem.
-- **Continuous Output Generator**: Getting AI to generate endless content or options.
-- **Generate Outline**: Getting AI to generate an outline of the solution.
-  - **Expand Outline**: Creating and expanding the outline to generate a detailed solution.
+- **Continuous Output Generator**: Getting AI to generate input for the next step in the solution.
+- **Expand Outline**: Expanding the outline to generate a detailed solution.
 - **Solution Analogy**: Asking AI to help visualize the solution with analogies and examples.
 
 
