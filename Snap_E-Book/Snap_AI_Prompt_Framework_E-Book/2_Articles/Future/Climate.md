@@ -1,1 +1,0 @@
-If the climate alarmist are right about their assessments of the future, then we are in a for a rude awakening. That topic of this is about the culture at the time these events unfold would be very intseresting. With the new breakthrough of AI drugs 

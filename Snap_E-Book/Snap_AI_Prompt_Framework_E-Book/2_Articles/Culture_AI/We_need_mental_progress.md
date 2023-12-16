@@ -1,6 +1,0 @@
-# The need for mental progress
-
-- Humans have made technological progress, have we mad the metal progress to match the technological progress? 
-- I see so much potential in humans hindered by layered savagery. It's not all bad, savagery might be the thing that has allowed us to survive and thrive. But of course it must be balanced, with empathy, action and whatever else is missing. 
-- I am thinking about Democratic norms Anabasis, and Nelson Mandela also described Democratic norms he witnessed as a child in Xhosa tribe. Those people lived in a world much less developed than ours, but as a group they possessed the dialogue and language tools to solve problems democratically. That is no longer the case, we don't have the ability to solve problems democratically.
-- There's has been demand for censorship from various groups because they can't handle ideas of the real world, many of them are winning. This is setup for the slow collapse of current system. Failure of one system shall give rise to another. But you gotta hand it to the "Barbarians", at least they were able to have a dialogue and solve problems democratically. 

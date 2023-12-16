@@ -1,1 +1,0 @@
-Balance is all you need. Everything in moderation except moderation itself.
