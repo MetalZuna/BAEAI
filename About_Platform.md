@@ -1,2 +1,2 @@
 # About
-- [About Platform](/about/About_Platform)
+- [About Platform](/about/About)
