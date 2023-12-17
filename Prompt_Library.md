@@ -6,3 +6,4 @@
 - [History](/prompt_library/History_Timeline)
 - [Leadership Discussion](/prompt_library/Leadership_Discussion)
 - [Philosophy](/prompt_library/Philosophical_Talk)
+- [Finance](/prompt_library/Financial_Advice)
