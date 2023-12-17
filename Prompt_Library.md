@@ -1,4 +1,8 @@
 # Prompt Library
 
-- [Leadership](/prompt_library/Leadership_Discussion_1)
-- [Culture](/prompt_library/Culture_Explorer_1)
+- [Culture Explorer](/prompt_library/Culture_Explorer)
+- [Elon Musk](/prompt_library/Elon_Musk)
+- [General Purpose](/prompt_library/General_Purpose)
+- [History](/prompt_library/History_Timeline)
+- [Leadership Discussion](/prompt_library/Leadership_Discussion)
+- [Philosophy](/prompt_library/Philosophical_Talk)
