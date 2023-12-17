@@ -22,7 +22,7 @@
 - [Marketing Strategist](/prompt_library/Marketing_Strategist)
 - [E-Book Helper](/prompt_library/E-Book_Helper)
 - [Writing Assistant](/prompt_library/Writing_Assistant)
-- [Easy Veg Indian Recipes](/prompt_library/Easy_Veg_Indian_Recipes)
+- [Easy Veg Indian](/prompt_library/Easy_Veg_Indian)
 - [Patiala Food](/prompt_library/Patiala_Food)
 - [Lee Kuan Yew](/prompt_library/Lee_Kuan_Yew)
 - [For Junior Devs](/prompt_library/For_Junior_Devs)
