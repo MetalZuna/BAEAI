@@ -1,2 +1,2 @@
 # LLM Benchmarking
-- [Benchmarking](/LLM_Benchmarking/Benchmark)
+- [Benchmarking](/llm_benchmarking/Benchmark)
