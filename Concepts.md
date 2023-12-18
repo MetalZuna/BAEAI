@@ -1,4 +1,4 @@
 # Concepts
 
-- [Land Helper](/concepts/Land_Helper)
-- [Virtual World](/concepts/Virtual_World)
+- [Land_Helper](/concepts/Land_Helper)
+- [Virtual_World](/concepts/Virtual_World)
