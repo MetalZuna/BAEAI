@@ -1,4 +1,4 @@
-# E-Book
+# Ebook
 
 - [General Introduction](/e-book/General_Introduction)
 - [Conceptual Foundations](/e-book/Conceptual_Foundations)
