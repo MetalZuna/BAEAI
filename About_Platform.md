@@ -1,2 +1,3 @@
-# About
-- [About Platform](/about/About)
+# About Platform
+
+- This is a test
