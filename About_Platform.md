@@ -1,3 +1,3 @@
 # About Platform
 
-- This is a test
+- Coming soon
