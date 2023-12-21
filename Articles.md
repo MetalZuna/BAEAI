@@ -1,6 +1,5 @@
 # Articles
 
-- [Human Language](/ai_articles/Human_Language)
-- [Link text](https://www.google.com/)
+- [Human Language](https://raw.githubusercontent.com/MetalZuna/BAEAI/main/Articles/Culture/Human_Language.md)
 
 
