@@ -7,3 +7,5 @@
 - This will have a profound effect on the society. There will be new celebrities and content creators. It would be akin to what youtube did for content creation but on steroids.
  
 - In this new AI powered world, the script can be written by AI, the actors can played be AI, the music created AI, the editing can be done AI, and the distribution can be managed AI, you see where this is going. 
+
+- The competition for gaining influence over others is going to be different. Content creation is getting automated, just like everything else. 
