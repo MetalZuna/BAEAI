@@ -1,0 +1,2 @@
+# Impact of AI on Human Workflow
+- AI tech is redefining the way we work. We'll soon need established workflows that leverage AI tech to increase efficiency and reduce costs. There's so much application of AI tech in the workplace and daily life. This feels like we are in the early stages of a new industrial revolution that could automate solving most problems, and then we'll have to figure out what to do with our time.
