@@ -1,8 +1,8 @@
-### Complexity of Human Language in AI Prompting Frameworks
+# Complexity of Human Language in AI Prompting Frameworks
 
 - Human language, a complex symbol and meaning system, is challenging to replicate within computational frameworks. This section examines the intricacies of human language and their implications for AI prompting frameworks such as Snap.
 
-#### Challenges in Capturing Human Language
+## Challenges in Capturing Human Language
 
 - Programming languages are strict and deterministic, designed to remove ambiguity. 
 
@@ -12,6 +12,3 @@
     • Idiomatic Expressions: Phrases like 'break a leg' have meanings that are not directly translatable.
     • Ambiguity: Many words and phrases in human languages have multiple meanings.
 
-#### Snap AI Prompt Framework Approach
-
-- Although replicating every facet of human language is challenging, the Snap AI Prompt Framework provides a systematic approach. The framework encompasses modules and patterns tailored to manage diverse human language complexities. It aids both technical and non-technical users in interacting efficiently with language models.
