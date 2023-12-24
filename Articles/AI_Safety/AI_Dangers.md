@@ -15,5 +15,5 @@
 
 - There is a legend about a King who made it illegal to have a negative thought about the King, but it's laughable to think that the rule can be enforced since we can't read thoughts. That's where this gets crazy, the AI tech of today gives it's handlers the ability to monitor and manipulate people and systems in ways that were not possible before. We are just at the tip of this tech, there is so much that is going to happen.
 
-- Should we be worried? I am not sure. It is just the next thing in line of never ending transformations, at least we should have a conversation about it.
+- Should we be worried? I am not sure. It is just the next thing in line of never ending transformations, at least we should talk about the risks.
 
