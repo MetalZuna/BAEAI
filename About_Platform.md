@@ -1,3 +1,1 @@
-# About Platform
-
-- Coming soon
+# Coming soon
